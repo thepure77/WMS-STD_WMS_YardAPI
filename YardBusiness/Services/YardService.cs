@@ -5064,17 +5064,17 @@ namespace Business.Services
                 var update = db.Tb_Appointment.Find(appointmentstatus.Appointment_Index);
                 update.Document_status = 2;
 
-                if (appointmentstatus.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB") || appointmentstatus.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7"))
-                {
-                    Result result_api = Utils.GetDataApi<Result>(new AppSettingConfig().GetUrl("GI_Before_Checkin"), appointmentItem[0].Ref_Document_No);
+                //if (appointmentstatus.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB") || appointmentstatus.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7"))
+                //{
+                //    Result result_api = Utils.GetDataApi<Result>(new AppSettingConfig().GetUrl("GI_Before_Checkin"), appointmentItem[0].Ref_Document_No);
 
-                    if (!result_api.ResultIsUse)
-                    {
-                        result.ResultIsUse = false;
-                        result.ResultMsg = "การสร้าง ข้อมูล ไม่สำเร็จ";
-                        return result;
-                    }
-                }
+                //    if (!result_api.ResultIsUse)
+                //    {
+                //        result.ResultIsUse = false;
+                //        result.ResultMsg = "การสร้าง ข้อมูล ไม่สำเร็จ";
+                //        return result;
+                //    }
+                //}
 
                 var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                 try
@@ -5434,23 +5434,23 @@ namespace Business.Services
                                 
                             }
                         }
-                        if (transportManifest.items.Count > 0)
-                        {
-                            //LoggingService.DataLogLines("Checkout", "Checkout" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout model : " + transportManifest);
-                            LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout TMS : " + JsonConvert.SerializeObject(transportManifest) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-                            var result_api = Utils.SendDataApi_release_manifest<TransportManifest>(new AppSettingConfig().GetUrl("release_manifest"), JsonConvert.SerializeObject(transportManifest), "02B31868-9D3D-448E-B023-05C121A424F4");
-                            //foreach (var code in result_api.items)
-                            //{
-                            LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout TMS : " + JsonConvert.SerializeObject(result_api) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-                            if (!result_api.response)
-                                {
-                                    result.ResultIsUse = false;
-                                    result.ResultMsg = "ไม่สามารถ ปล่อยรถได้" + result_api.message;
-                                    LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Error : " + JsonConvert.SerializeObject(result_api) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-                                    return result;
-                                }
-                            //}
-                        }
+                        //if (transportManifest.items.Count > 0)
+                        //{
+                        //    //LoggingService.DataLogLines("Checkout", "Checkout" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout model : " + transportManifest);
+                        //    LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout TMS : " + JsonConvert.SerializeObject(transportManifest) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                        //    var result_api = Utils.SendDataApi_release_manifest<TransportManifest>(new AppSettingConfig().GetUrl("release_manifest"), JsonConvert.SerializeObject(transportManifest), "02B31868-9D3D-448E-B023-05C121A424F4");
+                        //    //foreach (var code in result_api.items)
+                        //    //{
+                        //    LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout TMS : " + JsonConvert.SerializeObject(result_api) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                        //    if (!result_api.response)
+                        //        {
+                        //            result.ResultIsUse = false;
+                        //            result.ResultMsg = "ไม่สามารถ ปล่อยรถได้" + result_api.message;
+                        //            LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Error : " + JsonConvert.SerializeObject(result_api) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                        //            return result;
+                        //        }
+                        //    //}
+                        //}
                         
 
                     }
