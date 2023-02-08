@@ -53,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Qcall\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 

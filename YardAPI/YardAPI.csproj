@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Qcall\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
