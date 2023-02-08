@@ -30,6 +30,7 @@ namespace Business.Services
         private readonly MasterDbContext dbMS;
         private readonly GRDbContext dbGR;
         private readonly GIDbContext dbGI;
+        private readonly QcallDbContext dbQcall;
         private string urlFireBase = ConfigurationManager1.AppSetting["firebase:real_time_url"];
         private string authFireBaseRealtimebase = ConfigurationManager1.AppSetting["firebase:real_time_auth"];
         private string urlFireBaseFCM = ConfigurationManager1.AppSetting["firebase:fcm_url"];
@@ -78,7 +79,7 @@ namespace Business.Services
             dbMS = new MasterDbContext();
             dbGR = new GRDbContext();
             dbGI = new GIDbContext();
-            
+            dbQcall = new QcallDbContext();
         }
 
         public YardService(YardDbContext db, MasterDbContext dbMS, GRDbContext dbGR, GIDbContext dbGI )
@@ -87,6 +88,7 @@ namespace Business.Services
             this.dbMS = dbMS;
             this.dbGR = dbGR;
             this.dbGI = dbGI;
+            this.dbQcall = dbQcall;
         }
 
         public YardService(IConfiguration configuration)
@@ -7975,6 +7977,7 @@ namespace Business.Services
 
         #endregion
 
+
         public string SaveLogRequest(string orderno, string json, string interfacename, int status, string txt, Guid logindex)
         {
             try
@@ -8027,7 +8030,61 @@ namespace Business.Services
 
         }
 
+        #region Qcall
+        public QcallModel Qcall()
+        {
+            try
+            {
+                QcallModel result = new QcallModel();
+                List<InboundModel> resultInbound = new List<InboundModel>();
+                List<OutboundModel> resultOutbound = new List<OutboundModel>();
+                var lstIB = dbQcall.tbl_qcall.Where(w => w.DockType == "IB").ToList();
+                var lstOB = dbQcall.tbl_qcall.Where(w => w.DockType == "OB").ToList();
 
+                foreach (var item in lstIB)
+                {
+                    InboundModel model = new InboundModel();
+
+
+                    model.TransactionID = item.TransactionID.ToString();
+                    model.QNo = item.QNo;
+                    model.DockNo = item.DockNo;
+                    model.DockType = item.DockType;
+                    model.LicenseNo = item.LicenseNo;
+                    model.Appointment_Id = item.Appointment_Id;
+                    model.Status = item.Status.ToString();
+                    model.UpdateDT = item.UpdateDT.ToString();
+                    model.UpdateBy = item.UpdateBy;
+                    resultInbound.Add(model);
+                }
+
+                foreach (var item in lstOB)
+                {
+                    OutboundModel model = new OutboundModel();
+
+                    model.TransactionID = Convert.ToInt32(item.TransactionID).ToString();
+                    model.QNo = item.QNo;
+                    model.DockNo = item.DockNo;
+                    model.DockType = item.DockType;
+                    model.LicenseNo = item.LicenseNo;
+                    model.Appointment_Id = item.Appointment_Id;
+                    model.Status = item.Status.ToString();
+                    model.UpdateDT = item.UpdateDT.ToString();
+                    model.UpdateBy = item.UpdateBy;
+                    resultOutbound.Add(model);
+                }
+
+                result.lstInbound = resultInbound;
+                result.lstOutbound = resultOutbound;
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
     }
 
 }
