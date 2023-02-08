@@ -14,6 +14,8 @@ namespace DataAccess
         public virtual DbSet<im_TruckLoadItem> im_TruckLoadItem { get; set; }
         public virtual DbSet<View_tagout_with_truckload> View_tagout_with_truckload { get; set; }
         public virtual DbSet<View_CheckReport_Status> View_CheckReport_Status { get; set; }
+        public virtual DbSet<log_api_reponse> log_api_reponse { get; set; }
+        public virtual DbSet<log_api_request> log_api_request { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

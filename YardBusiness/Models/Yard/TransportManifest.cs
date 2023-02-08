@@ -21,6 +21,18 @@ namespace Business.Models
         
     }
 
+    public class DemoCallbackResponseViewModel
+    {
+        public string status { get; set; }
+        public string message { get; set; }
+        public DemoCallbackResponseItemViewModel data { get; set; }
+    }
+
+    public class DemoCallbackResponseItemViewModel
+    {
+        public string logId { get; set; }
+    }
+
     public class bookTransportManifest
     {
         public bookTransportManifest()
