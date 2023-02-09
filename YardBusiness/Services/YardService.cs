@@ -6723,26 +6723,29 @@ namespace Business.Services
 
                         foreach (var itemmodel in appointmentItem)
                         {
-                            var truckLoads = dbGI.im_TruckLoad.FirstOrDefault(c => c.TruckLoad_No == itemmodel.Ref_Document_No && c.Document_Status != -1);
-                            if (truckLoads != null)
+                            if (itemmodel.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"))
                             {
-                                List<DataAccess.Models.GI.Table.im_TruckLoadItem> truckLoadItems = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == truckLoads.TruckLoad_Index).ToList();
-
-                                foreach (var itemList in truckLoadItems)
+                                var truckLoads = dbGI.im_TruckLoad.FirstOrDefault(c => c.TruckLoad_No == itemmodel.Ref_Document_No && c.Document_Status != -1);
+                                if (truckLoads != null)
                                 {
-                                    var resmodel = new
+                                    List<DataAccess.Models.GI.Table.im_TruckLoadItem> truckLoadItems = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == truckLoads.TruckLoad_Index).ToList();
+
+                                    foreach (var itemList in truckLoadItems)
                                     {
-                                        referenceNo = itemList.PlanGoodsIssue_No,
-                                        status = 104,
-                                        statusAfter = 104,
-                                        statusBefore = 103,
-                                        statusDesc = "นำจ่าย",
-                                        statusDateTime = DateTime.Now
-                                    };
-                                    SaveLogRequest(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(resmodel), resmodel.statusDesc,1, resmodel.statusDesc, Guid.NewGuid());
-                                    var result_api = Utils.SendDataApi<DemoCallbackResponseViewModel>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
-                                    //Result result_api = Utils.GetDataApi<Result>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
-                                    SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(result_api), resmodel.statusDesc, 1, resmodel.statusDesc, Guid.NewGuid());
+                                        var resmodel = new
+                                        {
+                                            referenceNo = itemList.PlanGoodsIssue_No,
+                                            status = 104,
+                                            statusAfter = 104,
+                                            statusBefore = 103,
+                                            statusDesc = "นำจ่าย",
+                                            statusDateTime = DateTime.Now
+                                        };
+                                        SaveLogRequest(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(resmodel), resmodel.statusDesc, 1, resmodel.statusDesc, Guid.NewGuid());
+                                        var result_api = Utils.SendDataApi<DemoCallbackResponseViewModel>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
+                                        //Result result_api = Utils.GetDataApi<Result>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
+                                        SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(result_api), resmodel.statusDesc, 1, resmodel.statusDesc, Guid.NewGuid());
+                                    }
                                 }
                             }
                         }
@@ -7978,6 +7981,7 @@ namespace Business.Services
         #endregion
 
 
+        #region SaveLogRequest
         public string SaveLogRequest(string orderno, string json, string interfacename, int status, string txt, Guid logindex)
         {
             try
@@ -8001,7 +8005,9 @@ namespace Business.Services
             }
 
         }
+        #endregion
 
+        #region SaveLogResponse
         public string SaveLogResponse(string orderno, string json, string interfacename, int status, string txt, Guid logindex)
         {
             try
@@ -8029,6 +8035,7 @@ namespace Business.Services
             }
 
         }
+        #endregion
 
         #region Qcall
         public QcallModel Qcall()
