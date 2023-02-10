@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Qcall\View\" />
     <Folder Include="Models\Yard\View\" />
   </ItemGroup>
 

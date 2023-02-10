@@ -8053,13 +8053,12 @@ namespace Business.Services
                 QcallModel result = new QcallModel();
                 List<InboundModel> resultInbound = new List<InboundModel>();
                 List<OutboundModel> resultOutbound = new List<OutboundModel>();
-                var lstIB = dbQcall.tbl_qcall.Where(w => w.DockType == "IB").ToList();
-                var lstOB = dbQcall.tbl_qcall.Where(w => w.DockType == "OB").ToList();
+                var lstIB = dbQcall.View_Monitor_Queue.Where(w => w.DockType == "IB").ToList();
+                var lstOB = dbQcall.View_Monitor_Queue.Where(w => w.DockType == "OB").ToList();
 
                 foreach (var item in lstIB)
                 {
                     InboundModel model = new InboundModel();
-
 
                     model.TransactionID = item.TransactionID.ToString();
                     model.QNo = item.QNo;
@@ -8067,7 +8066,13 @@ namespace Business.Services
                     model.DockType = item.DockType;
                     model.LicenseNo = item.LicenseNo;
                     model.Appointment_Id = item.Appointment_Id;
+                    model.QueueDate = item.QueueDate;
+                    model.QueueTime = item.QueueTime;
+                    model.CheckInDate = item.CheckInDate;
+                    model.CheckInTime = item.CheckInTime;
+                    model.StatusText = item.StatusText.ToString();
                     model.Status = item.Status.ToString();
+                    model.Remark = item.Remark.ToString();
                     model.UpdateDT = item.UpdateDT.ToString();
                     model.UpdateBy = item.UpdateBy;
                     resultInbound.Add(model);
@@ -8083,7 +8088,13 @@ namespace Business.Services
                     model.DockType = item.DockType;
                     model.LicenseNo = item.LicenseNo;
                     model.Appointment_Id = item.Appointment_Id;
+                    model.QueueDate = item.QueueDate;
+                    model.QueueTime = item.QueueTime;
+                    model.CheckInDate = item.CheckInDate;
+                    model.CheckInTime = item.CheckInTime;
+                    model.StatusText = item.StatusText.ToString();
                     model.Status = item.Status.ToString();
+                    model.Remark = item.Remark.ToString();
                     model.UpdateDT = item.UpdateDT.ToString();
                     model.UpdateBy = item.UpdateBy;
                     resultOutbound.Add(model);
