@@ -8023,8 +8023,8 @@ namespace Business.Services
                 l.File_Name = orderno;
                 dbGI.log_api_reponse.Add(l);
 
-                var d = dbGI.log_api_request.Where(c => c.log_id == logindex).FirstOrDefault();
-                d.status = status;
+                //var d = dbGI.log_api_request.Where(c => c.log_id == logindex).FirstOrDefault();
+                //d.status = status;
 
                 dbGI.SaveChanges();
                 return "";
