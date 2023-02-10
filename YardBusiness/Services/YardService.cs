@@ -433,7 +433,7 @@ namespace Business.Services
 
                 TimeSpan interval = new TimeSpan(0, model.Interval - 1, 0);
                 TimeSpan adjust = new TimeSpan(0, 1, 0);
-                TimeSpan time = new TimeSpan(1, 0, 0);
+                TimeSpan time = new TimeSpan(0, 0, 0);
 
                 string start, end;
                 int id = 0;
@@ -441,15 +441,15 @@ namespace Business.Services
                 {
                     start = time.ToString(@"hh\:mm");
 
-                    if (start == "10:00" || start == "17:00" || start == "05:00" || start == "22:00")
-                    {
-                        TimeSpan time_brake = new TimeSpan(1, -1, 0);
-                        time = time.Add(time_brake);
-                    }
-                    else
-                    {
+                    //if (start == "10:00" || start == "17:00" || start == "05:00" || start == "22:00")
+                    //{
+                    //    TimeSpan time_brake = new TimeSpan(1, -1, 0);
+                    //    time = time.Add(time_brake);
+                    //}
+                    //else
+                    //{
                         time = time.Add(interval);
-                    }
+                    //}
 
                     if (time.Days == 1)
                     {
@@ -950,7 +950,8 @@ namespace Business.Services
                     if ((dockQouta?.Count ?? 0) > 0)
                     {
                         listDockQoutaIndex = dockQouta.Select(s => s.DockQouta_Index).ToList();
-                        dockIntervalQouta = db.Ms_DockQoutaInterval.Where(w => w.Dock_Index.IsEquals(model.Dock_Index) && listDockQoutaIndex.Contains(w.DockQouta_Index) && getdock.Contains(w.Dock_Index)).ToList();
+                        dockIntervalQouta = db.Ms_DockQoutaInterval.Where(w => w.Dock_Index.IsEquals(model.Dock_Index) && listDockQoutaIndex.Contains(w.DockQouta_Index) && getdock.Contains(w.Dock_Index))
+                            .OrderBy(c=> (int.Parse(c.Dock_Id))).ToList();
                         if (model.vehicleType_Index != null)
                         {
                             List<Guid> Vehicle_Dock = db.tb_VehicleDock.Where(c => c.VehicleType_Index == Guid.Parse(model.vehicleType_Index)).Select(s => s.Dock_Index).ToList();
@@ -959,7 +960,7 @@ namespace Business.Services
                         if ((dockIntervalQouta?.Count ?? 0) > 0)
                         {
                             listDockQoutaIntervalIndex = dockIntervalQouta.Select(s => s.DockQoutaInterval_Index).ToList();
-                            appointmentItem = db.Tb_AppointmentItem.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index) && w.IsActive == 1 && w.IsDelete ==0 ).ToList();
+                            appointmentItem = db.Tb_AppointmentItem.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index) && w.IsActive == 1 && w.IsDelete ==0 ).OrderBy(c => int.Parse(c.Dock_Id)).ToList();
                             blockAppointmentTimes = db.tb_BlockAppointmentTime.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index)).ToList();
 
                             (from dock in dockQouta
@@ -975,7 +976,7 @@ namespace Business.Services
                                  interval.Dock_Id,
                                  interval.Dock_Name
                              } into dockGroup
-                             orderby dockGroup.Key.Dock_Id
+                             orderby int.Parse(dockGroup.Key.Dock_Id)
                              select dockGroup).ToList().ForEach(e => qouta.Items.Add(
                                  new AppointmentQoutaDockModel()
                                  {
@@ -989,7 +990,7 @@ namespace Business.Services
 
                             foreach (AppointmentQoutaDockModel dock in qouta.Items)
                             {
-                                dockIntervalQoutaFilter = dockIntervalQouta.Where(w => w.Dock_Index == dock.Dock_Index).OrderBy(o => o.Seq).ToList();
+                                dockIntervalQoutaFilter = dockIntervalQouta.Where(w => w.Dock_Index == dock.Dock_Index).OrderBy(c => int.Parse(c.Dock_Id)).ThenBy(o => o.Seq).ToList();
                                 foreach (Ms_DockQoutaInterval interval in dockIntervalQoutaFilter)
                                 {
 
@@ -5464,6 +5465,43 @@ namespace Business.Services
                     {
                         db.SaveChanges();
                         myTransaction.Commit();
+
+                        foreach (var itemmodel in appointmentItem)
+                        {
+                            if (itemmodel.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"))
+                            {
+                                var truckLoads = dbGI.im_TruckLoad.FirstOrDefault(c => c.TruckLoad_No == itemmodel.Ref_Document_No && c.Document_Status != -1);
+                                if (truckLoads != null)
+                                {
+                                    List<DataAccess.Models.GI.Table.im_TruckLoadItem> truckLoadItems = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == truckLoads.TruckLoad_Index).ToList();
+
+                                    foreach (var itemList in truckLoadItems)
+                                    {
+                                        var des = "นำจ่าย";
+                                        try
+                                        {
+
+                                            var resmodel = new
+                                            {
+                                                referenceNo = itemList.PlanGoodsIssue_No,
+                                                status = 104,
+                                                statusAfter = 104,
+                                                statusBefore = 103,
+                                                statusDesc = des,
+                                                statusDateTime = DateTime.Now
+                                            };
+                                            SaveLogRequest(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(resmodel), des, 1, des, Guid.NewGuid());
+                                            var result_api = Utils.SendDataApi<DemoCallbackResponseViewModel>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
+                                            SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(result_api), resmodel.statusDesc, 2, resmodel.statusDesc, Guid.NewGuid());
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(ex.Message), des, -1, des, Guid.NewGuid());
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     catch (Exception saveEx)
                     {
@@ -6721,42 +6759,42 @@ namespace Business.Services
                         db.SaveChanges();
                         myTransaction.Commit();
 
-                        foreach (var itemmodel in appointmentItem)
-                        {
-                            if (itemmodel.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"))
-                            {
-                                var truckLoads = dbGI.im_TruckLoad.FirstOrDefault(c => c.TruckLoad_No == itemmodel.Ref_Document_No && c.Document_Status != -1);
-                                if (truckLoads != null)
-                                {
-                                    List<DataAccess.Models.GI.Table.im_TruckLoadItem> truckLoadItems = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == truckLoads.TruckLoad_Index).ToList();
+                        //foreach (var itemmodel in appointmentItem)
+                        //{
+                        //    if (itemmodel.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"))
+                        //    {
+                        //        var truckLoads = dbGI.im_TruckLoad.FirstOrDefault(c => c.TruckLoad_No == itemmodel.Ref_Document_No && c.Document_Status != -1);
+                        //        if (truckLoads != null)
+                        //        {
+                        //            List<DataAccess.Models.GI.Table.im_TruckLoadItem> truckLoadItems = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == truckLoads.TruckLoad_Index).ToList();
 
-                                    foreach (var itemList in truckLoadItems)
-                                    {
-                                        var des = "นำจ่าย";
-                                        try
-                                        {
+                        //            foreach (var itemList in truckLoadItems)
+                        //            {
+                        //                var des = "นำจ่าย";
+                        //                try
+                        //                {
                                             
-                                            var resmodel = new
-                                            {
-                                                referenceNo = itemList.PlanGoodsIssue_No,
-                                                status = 104,
-                                                statusAfter = 104,
-                                                statusBefore = 103,
-                                                statusDesc = des,
-                                                statusDateTime = DateTime.Now
-                                            };
-                                            SaveLogRequest(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(resmodel), des, 1, des, Guid.NewGuid());
-                                            var result_api = Utils.SendDataApi<DemoCallbackResponseViewModel>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
-                                            SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(result_api), resmodel.statusDesc, 2, resmodel.statusDesc, Guid.NewGuid());
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(ex.Message), des, -1, des, Guid.NewGuid());
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        //                    var resmodel = new
+                        //                    {
+                        //                        referenceNo = itemList.PlanGoodsIssue_No,
+                        //                        status = 104,
+                        //                        statusAfter = 104,
+                        //                        statusBefore = 103,
+                        //                        statusDesc = des,
+                        //                        statusDateTime = DateTime.Now
+                        //                    };
+                        //                    SaveLogRequest(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(resmodel), des, 1, des, Guid.NewGuid());
+                        //                    var result_api = Utils.SendDataApi<DemoCallbackResponseViewModel>(new AppSettingConfig().GetUrl("TMS_status"), JsonConvert.SerializeObject(resmodel));
+                        //                    SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(result_api), resmodel.statusDesc, 2, resmodel.statusDesc, Guid.NewGuid());
+                        //                }
+                        //                catch (Exception ex)
+                        //                {
+                        //                    SaveLogResponse(itemList.PlanGoodsIssue_No, JsonConvert.SerializeObject(ex.Message), des, -1, des, Guid.NewGuid());
+                        //                }
+                        //            }
+                        //        }
+                        //    }
+                        //}
                         
                     }
                     catch (Exception saveEx)
