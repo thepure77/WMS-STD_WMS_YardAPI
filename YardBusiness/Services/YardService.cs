@@ -37,35 +37,35 @@ namespace Business.Services
         private string authFireBaseFCM = ConfigurationManager1.AppSetting["firebase:fcm_auth"];
 
         #region + route +
-        private string routeBKK =           ConfigurationManager1.AppSetting["ConfigAuto:routeBKK"];
-        private string routeCentral =       ConfigurationManager1.AppSetting["ConfigAuto:routeCentral"];
-        private string routeUPC =           ConfigurationManager1.AppSetting["ConfigAuto:routeUPC"];
-        private string SubrouteBKK_A =      ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_A"];
-        private string SubrouteBKK_B =      ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_B"];
-        private string SubrouteBKK_C =      ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_C"];
-        private string SubrouteBKK_D =      ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_D"];
+        private string routeBKK = ConfigurationManager1.AppSetting["ConfigAuto:routeBKK"];
+        private string routeCentral = ConfigurationManager1.AppSetting["ConfigAuto:routeCentral"];
+        private string routeUPC = ConfigurationManager1.AppSetting["ConfigAuto:routeUPC"];
+        private string SubrouteBKK_A = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_A"];
+        private string SubrouteBKK_B = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_B"];
+        private string SubrouteBKK_C = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_C"];
+        private string SubrouteBKK_D = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteBKK_D"];
         private string SubrouteCentral_01 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteCentral_01"];
         private string SubrouteCentral_02 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteCentral_02"];
         private string SubrouteCentral_03 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteCentral_03"];
         private string SubrouteCentral_04 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteCentral_04"];
         private string SubrouteCentral_05 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteCentral_05"];
-        private string SubrouteUPC_01 =     ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_01"];
-        private string SubrouteUPC_02 =     ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_02"];
-        private string SubrouteUPC_03 =     ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_03"];
-        private string SubrouteUPC_04 =     ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_04"];
-        private string Time_SubrouteBKK_A =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_A"];
-        private string Time_SubrouteBKK_B =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_B"];
-        private string Time_SubrouteBKK_C =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_C"];
-        private string Time_SubrouteBKK_D =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_D"];
-        private string Time_SubrouteCentral_01 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_01"];
-        private string Time_SubrouteCentral_02 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_02"];
-        private string Time_SubrouteCentral_03 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_03"];
-        private string Time_SubrouteCentral_04 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_04"];
-        private string Time_SubrouteCentral_05 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_05"];
-        private string Time_SubrouteUPC_01 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_01"];
-        private string Time_SubrouteUPC_02 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_02"];
-        private string Time_SubrouteUPC_03 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_03"];
-        private string Time_SubrouteUPC_04 =     ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_04"];
+        private string SubrouteUPC_01 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_01"];
+        private string SubrouteUPC_02 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_02"];
+        private string SubrouteUPC_03 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_03"];
+        private string SubrouteUPC_04 = ConfigurationManager1.AppSetting["ConfigAuto:SubrouteUPC_04"];
+        private string Time_SubrouteBKK_A = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_A"];
+        private string Time_SubrouteBKK_B = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_B"];
+        private string Time_SubrouteBKK_C = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_C"];
+        private string Time_SubrouteBKK_D = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteBKK_D"];
+        private string Time_SubrouteCentral_01 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_01"];
+        private string Time_SubrouteCentral_02 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_02"];
+        private string Time_SubrouteCentral_03 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_03"];
+        private string Time_SubrouteCentral_04 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_04"];
+        private string Time_SubrouteCentral_05 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteCentral_05"];
+        private string Time_SubrouteUPC_01 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_01"];
+        private string Time_SubrouteUPC_02 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_02"];
+        private string Time_SubrouteUPC_03 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_03"];
+        private string Time_SubrouteUPC_04 = ConfigurationManager1.AppSetting["ConfigAuto:Time_SubrouteUPC_04"];
 
         private string latti = ConfigurationManager1.AppSetting["ConfigAuto:lat"];
         private string longti = ConfigurationManager1.AppSetting["ConfigAuto:long"];
@@ -82,7 +82,7 @@ namespace Business.Services
             dbQcall = new QcallDbContext();
         }
 
-        public YardService(YardDbContext db, MasterDbContext dbMS, GRDbContext dbGR, GIDbContext dbGI )
+        public YardService(YardDbContext db, MasterDbContext dbMS, GRDbContext dbGR, GIDbContext dbGI)
         {
             this.db = db;
             this.dbMS = dbMS;
@@ -93,7 +93,7 @@ namespace Business.Services
 
         public YardService(IConfiguration configuration)
         {
-            
+
         }
         #endregion
 
@@ -365,9 +365,9 @@ namespace Business.Services
 
                 List<AppointmentWithItemModel> result = new List<AppointmentWithItemModel>();
                 Time_Appoint.GroupBy(g =>
-                    new { g.Appointment_Time, g.Appointment_Date}).Select(s =>
-                        new { s.Key.Appointment_Time, s.Key.Appointment_Date}).OrderBy(o => o.Appointment_Time).ToList().ForEach(e =>
-                            result.Add(new AppointmentWithItemModel() { Appointment_Time = e.Appointment_Time, Appointment_Date = e.Appointment_Date}));
+                    new { g.Appointment_Time, g.Appointment_Date }).Select(s =>
+                         new { s.Key.Appointment_Time, s.Key.Appointment_Date }).OrderBy(o => o.Appointment_Time).ToList().ForEach(e =>
+                              result.Add(new AppointmentWithItemModel() { Appointment_Time = e.Appointment_Time, Appointment_Date = e.Appointment_Date }));
 
                 return result;
             }
@@ -448,7 +448,7 @@ namespace Business.Services
                     //}
                     //else
                     //{
-                        time = time.Add(interval);
+                    time = time.Add(interval);
                     //}
 
                     if (time.Days == 1)
@@ -628,7 +628,8 @@ namespace Business.Services
 
                 DockQoutaModel result = JsonConvert.DeserializeObject<DockQoutaModel>(JsonConvert.SerializeObject(dockQouta));
                 dockQoutaIntervals.GroupBy(g => new { g.Dock_Index, g.Dock_Id, g.Dock_Name }).Select(s =>
-                    new { s.Key.Dock_Index, s.Key.Dock_Id, s.Key.Dock_Name }).ToList().ForEach(e => {
+                    new { s.Key.Dock_Index, s.Key.Dock_Id, s.Key.Dock_Name }).ToList().ForEach(e =>
+                    {
                         result.Docks.Add(new DockQoutaDockModel() { Dock_Index = e.Dock_Index, Dock_Id = e.Dock_Id, Dock_Name = e.Dock_Name });
                     });
 
@@ -875,7 +876,7 @@ namespace Business.Services
                 List<DocumentType> documenttype = new List<DocumentType>();
                 foreach (var item in result_api.ItemsDocumentType)
                 {
-                    if (item.DocumentType_Index == Guid.Parse("6A6D5A1C-3998-4C2B-B44A-330A78BA6335")  ) { continue; }
+                    if (item.DocumentType_Index == Guid.Parse("6A6D5A1C-3998-4C2B-B44A-330A78BA6335")) { continue; }
                     else { documenttype.Add(item); }
                 }
                 return documenttype;
@@ -951,7 +952,7 @@ namespace Business.Services
                     {
                         listDockQoutaIndex = dockQouta.Select(s => s.DockQouta_Index).ToList();
                         dockIntervalQouta = db.Ms_DockQoutaInterval.Where(w => w.Dock_Index.IsEquals(model.Dock_Index) && listDockQoutaIndex.Contains(w.DockQouta_Index) && getdock.Contains(w.Dock_Index))
-                            .OrderBy(c=> (int.Parse(c.Dock_Id))).ToList();
+                            .OrderBy(c => (int.Parse(c.Dock_Id))).ToList();
                         if (model.vehicleType_Index != null)
                         {
                             List<Guid> Vehicle_Dock = db.tb_VehicleDock.Where(c => c.VehicleType_Index == Guid.Parse(model.vehicleType_Index)).Select(s => s.Dock_Index).ToList();
@@ -960,7 +961,7 @@ namespace Business.Services
                         if ((dockIntervalQouta?.Count ?? 0) > 0)
                         {
                             listDockQoutaIntervalIndex = dockIntervalQouta.Select(s => s.DockQoutaInterval_Index).ToList();
-                            appointmentItem = db.Tb_AppointmentItem.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index) && w.IsActive == 1 && w.IsDelete ==0 ).OrderBy(c => int.Parse(c.Dock_Id)).ToList();
+                            appointmentItem = db.Tb_AppointmentItem.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index) && w.IsActive == 1 && w.IsDelete == 0).OrderBy(c => int.Parse(c.Dock_Id)).ToList();
                             blockAppointmentTimes = db.tb_BlockAppointmentTime.Where(w => w.Appointment_Date == date && listDockQoutaIntervalIndex.Contains(w.DockQoutaInterval_Index)).ToList();
 
                             (from dock in dockQouta
@@ -1386,7 +1387,7 @@ namespace Business.Services
                 }
                 else if (model.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"))
                 {
-                    getdock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.Dock_use == 0  && c.IsActive == 1).GroupBy(c => c.Dock_Index).Select(c => c.Key).ToList();
+                    getdock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.Dock_use == 0 && c.IsActive == 1).GroupBy(c => c.Dock_Index).Select(c => c.Key).ToList();
                 }
                 else if (model.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7"))
                 {
@@ -1469,9 +1470,9 @@ namespace Business.Services
                                     //}
                                     //else
                                     //{
-                                        isEnalble = !interval.IsBreakTime
-                                            && !appointmentItem.Any(w => w.DockQoutaInterval_Index == interval.DockQoutaInterval_Index)
-                                            && !blockAppointmentTimes.Any(w => w.DockQoutaInterval_Index == interval.DockQoutaInterval_Index);
+                                    isEnalble = !interval.IsBreakTime
+                                        && !appointmentItem.Any(w => w.DockQoutaInterval_Index == interval.DockQoutaInterval_Index)
+                                        && !blockAppointmentTimes.Any(w => w.DockQoutaInterval_Index == interval.DockQoutaInterval_Index);
                                     //}
 
 
@@ -1537,9 +1538,9 @@ namespace Business.Services
 
                 if (model.Dock_Index != null)
                 {
-                    Docktemp  = model.Dock_Index.GetValueOrDefault();
+                    Docktemp = model.Dock_Index.GetValueOrDefault();
                 }
-                
+
                 bool isEnalble;
                 int displayDate = 1; //wareHouseQouta.Display_Date;                           
                 for (int i = 0; i < displayDate; i++)
@@ -1658,58 +1659,105 @@ namespace Business.Services
                                join ami in db.Tb_AppointmentItem.Where(c => c.IsActive == 1 && c.IsDelete == 0 && c.Dock_Index.IsEquals(model.Dock_Index)) on am.Appointment_Index equals ami.Appointment_Index
                                select new
                                {
-                                    am.Appointment_Index
-                                   ,am.Appointment_Id
-                                   ,am.DocumentType_Index
-                                   ,am.DocumentType_Id
-                                   ,am.DocumentType_Name
-                                   ,am.Create_By
-                                   ,am.Update_By
-                                   ,am.Cancel_By
-                                   ,am.Update_Date
-                                   ,am.Create_Date
-                                   ,am.Document_status
-                                   ,ami.Appointment_Date
-                                   ,ami.Appointment_Time
-                                   ,ami.Dock_Name
-                                   ,ami.Ref_Document_No
-                                   ,ami.WareHouse_Index
-                               }).GroupBy(c=> new {
+                                   am.Appointment_Index
+                                   ,
+                                   am.Appointment_Id
+                                   ,
+                                   am.DocumentType_Index
+                                   ,
+                                   am.DocumentType_Id
+                                   ,
+                                   am.DocumentType_Name
+                                   ,
+                                   am.Create_By
+                                   ,
+                                   am.Update_By
+                                   ,
+                                   am.Cancel_By
+                                   ,
+                                   am.Update_Date
+                                   ,
+                                   am.Create_Date
+                                   ,
+                                   am.Document_status
+                                   ,
+                                   ami.Appointment_Date
+                                   ,
+                                   ami.Appointment_Time
+                                   ,
+                                   ami.Dock_Name
+                                   ,
+                                   ami.Ref_Document_No
+                                   ,
+                                   ami.WareHouse_Index
+                               }).GroupBy(c => new
+                               {
                                    c.Appointment_Index
-                                   ,c.Appointment_Id
-                                   ,c.DocumentType_Index
-                                   ,c.DocumentType_Id
-                                   ,c.DocumentType_Name
-                                   ,c.Create_By
-                                   ,c.Update_By
-                                   ,c.Cancel_By
-                                   ,c.Create_Date
-                                   ,c.Update_Date
-                                   ,c.Document_status
-                                   ,c.Appointment_Date
-                                   ,c.Appointment_Time
-                                   ,c.Ref_Document_No
-                                   ,c.WareHouse_Index
-                               }).Select(c=> new {
-                                    c.Key.Appointment_Index
-                                   ,c.Key.Appointment_Id
-                                   ,c.Key.DocumentType_Index
-                                   ,c.Key.DocumentType_Id
-                                   ,c.Key.DocumentType_Name
-                                   ,c.Key.Create_By
-                                   ,c.Key.Update_By
-                                   ,c.Key.Cancel_By
-                                   ,c.Key.Create_Date
-                                   ,c.Key.Update_Date
-                                   ,c.Key.Document_status
-                                   ,c.Key.Appointment_Date
-                                   ,Time = DateTime.Parse(c.Key.Appointment_Time.Split('-')[0].Trim())
-                                   ,c.Key.Appointment_Time
-                                   ,Dock = string.Join(" , ", c.Select(w=> w.Dock_Name)) 
-                                   ,c.Key.Ref_Document_No
-                                   ,c.Key.WareHouse_Index
-                               }).OrderByDescending(c=> c.Appointment_Date).ThenByDescending(c=> c.Appointment_Time).ToList();
-                
+                                   ,
+                                   c.Appointment_Id
+                                   ,
+                                   c.DocumentType_Index
+                                   ,
+                                   c.DocumentType_Id
+                                   ,
+                                   c.DocumentType_Name
+                                   ,
+                                   c.Create_By
+                                   ,
+                                   c.Update_By
+                                   ,
+                                   c.Cancel_By
+                                   ,
+                                   c.Create_Date
+                                   ,
+                                   c.Update_Date
+                                   ,
+                                   c.Document_status
+                                   ,
+                                   c.Appointment_Date
+                                   ,
+                                   c.Appointment_Time
+                                   ,
+                                   c.Ref_Document_No
+                                   ,
+                                   c.WareHouse_Index
+                               }).Select(c => new
+                               {
+                                   c.Key.Appointment_Index
+                                   ,
+                                   c.Key.Appointment_Id
+                                   ,
+                                   c.Key.DocumentType_Index
+                                   ,
+                                   c.Key.DocumentType_Id
+                                   ,
+                                   c.Key.DocumentType_Name
+                                   ,
+                                   c.Key.Create_By
+                                   ,
+                                   c.Key.Update_By
+                                   ,
+                                   c.Key.Cancel_By
+                                   ,
+                                   c.Key.Create_Date
+                                   ,
+                                   c.Key.Update_Date
+                                   ,
+                                   c.Key.Document_status
+                                   ,
+                                   c.Key.Appointment_Date
+                                   ,
+                                   Time = DateTime.Parse(c.Key.Appointment_Time.Split('-')[0].Trim())
+                                   ,
+                                   c.Key.Appointment_Time
+                                   ,
+                                   Dock = string.Join(" , ", c.Select(w => w.Dock_Name))
+                                   ,
+                                   c.Key.Ref_Document_No
+                                   ,
+                                   c.Key.WareHouse_Index
+                               }).OrderByDescending(c => c.Appointment_Date).ThenByDescending(c => c.Appointment_Time).ToList();
+
                 #region Appointment_Id
                 if (!string.IsNullOrEmpty(model.Appointment_Id))
                 {
@@ -1784,18 +1832,18 @@ namespace Business.Services
                     appoint = appoint.Where(c => statusModels.Contains(c.Document_status)).ToList();
                 }
                 #endregion
-                
+
                 //var statusModels = new List<int?>();
                 var statusModels_InAndOut = new List<int?>();
                 AppointmentViewModel result = new AppointmentViewModel();
 
-                foreach (var app in appoint.OrderByDescending(c=> c.Appointment_Date).ThenByDescending(x => (x.Time.TimeOfDay.TotalHours <= 10 ? 24.0 : 0.0) + x.Time.TimeOfDay.TotalHours).ThenByDescending(c=> c.Dock))
+                foreach (var app in appoint.OrderByDescending(c => c.Appointment_Date).ThenByDescending(x => (x.Time.TimeOfDay.TotalHours <= 10 ? 24.0 : 0.0) + x.Time.TimeOfDay.TotalHours).ThenByDescending(c => c.Dock))
                 {
-                    var car = db.Tb_AppointmentItemDetail.FirstOrDefault(c=> c.Appointment_Index == app.Appointment_Index);
-                    var Dock = db.Tb_AppointmentItem.Where(c => c.Appointment_Index == app.Appointment_Index).OrderBy(c=> c.AppointmentItem_Id).FirstOrDefault();
+                    var car = db.Tb_AppointmentItemDetail.FirstOrDefault(c => c.Appointment_Index == app.Appointment_Index);
+                    var Dock = db.Tb_AppointmentItem.Where(c => c.Appointment_Index == app.Appointment_Index).OrderBy(c => c.AppointmentItem_Id).FirstOrDefault();
                     Tb_YardBalance yardBalance = db.Tb_YardBalance.Where(c => c.Appointment_Index == app.Appointment_Index).FirstOrDefault();
 
-                    
+
 
                     AppointmentModel resultitem = new AppointmentModel();
                     resultitem.Appointment_Index = app.Appointment_Index;
@@ -1831,7 +1879,7 @@ namespace Business.Services
                     {
                         resultitem.VehicleType_Name = car.VehicleType_Name;
                         resultitem.VehicleType_No = car.Vehicle_No;
-                    }                   
+                    }
                     result.AppointmentModels.Add(resultitem);
                 }
 
@@ -2251,15 +2299,15 @@ namespace Business.Services
                     });
                 });
                 int runing = 1;
-                foreach (var item in blockAppointmentTimes.OrderBy(c=> c.Seq))
+                foreach (var item in blockAppointmentTimes.OrderBy(c => c.Seq))
                 {
                     datarow data = new datarow();
                     DockQoutaIntervalBreakTime dockQoutaIntervalBreak = new DockQoutaIntervalBreakTime();
                     data.dockQoutaInterval_Index = item.DockQoutaInterval_Index;
                     data.time_Start = item.Interval_Start;
                     data.time_End = item.Interval_End;
-                    data.time = item.Interval_Start +" - "+item.Interval_End;
-                    data.seq= item.Seq;
+                    data.time = item.Interval_Start + " - " + item.Interval_End;
+                    data.seq = item.Seq;
 
                     dockQoutaIntervalBreak.datarow = data;
                     dockQoutaIntervalBreak.index = runing;
@@ -2339,7 +2387,8 @@ namespace Business.Services
                         {
                             return false;
                         }
-                        else {
+                        else
+                        {
                             var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                             try
                             {
@@ -2353,7 +2402,8 @@ namespace Business.Services
                             }
                         }
                     }
-                    else {
+                    else
+                    {
                         var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                         try
                         {
@@ -2366,7 +2416,7 @@ namespace Business.Services
                             throw saveEx;
                         }
                     }
-                    
+
                 }
                 else { return false; }
 
@@ -2538,7 +2588,8 @@ namespace Business.Services
                                     db.Tb_AppointmentItem.Add(newAppointmentItem);
                                 }
 
-                            } else if (item.Dock_Index == Guid.Parse("43E4B9C5-9428-4235-AF04-B541686D83B7"))
+                            }
+                            else if (item.Dock_Index == Guid.Parse("43E4B9C5-9428-4235-AF04-B541686D83B7"))
                             {
                                 foreach (var itemDock in index_Dock21)
                                 {
@@ -2748,7 +2799,7 @@ namespace Business.Services
                 if (model.Owner_Name is null) { throw new Exception("Owner not found"); }
 
                 LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Start" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-                LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Group_Index" + model.Group_Index +"_"+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Group_Index" + model.Group_Index + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 List<Tb_AppointmentItem> appointmentItems = db.Tb_AppointmentItem.Where(w => w.Group_Index == model.Group_Index).ToList();
                 LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "appointmentItems" + appointmentItems.Count() + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 if ((appointmentItems?.Count ?? 0) == 0) { throw new Exception("AppointmentItem not found"); }
@@ -2787,7 +2838,7 @@ namespace Business.Services
                         newAppointmentItemDetails = new List<Tb_AppointmentItemDetail>();
                         foreach (AppointmentItemDetailModel detail in model.Details)
                         {
-                          
+
                             newAppointmentItemDetails.Add(new Tb_AppointmentItemDetail()
                             {
                                 AppointmentItemDetail_Index = Guid.NewGuid(),
@@ -2813,7 +2864,7 @@ namespace Business.Services
 
                         db.Tb_AppointmentItemDetail.AddRange(newAppointmentItemDetails);
                     }
-                    LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "S.1" +  "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                    LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "S.1" + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                     if ((model.DockQoutaIntervalBreakTime?.Count ?? 0) > 0)
                     {
                         Ms_DockQoutaInterval dockQoutaInterval = db.Ms_DockQoutaInterval.FirstOrDefault(c => c.DockQoutaInterval_Index == appointmentItem.DockQoutaInterval_Index);
@@ -2839,7 +2890,7 @@ namespace Business.Services
                         LoggingService.DataLogLines("SaveAppointmentItemGroup", "SaveAppointmentItemGroup" + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "S.2" + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                         foreach (var item in model.DockQoutaIntervalBreakTime)
                         {
-                            
+
                             newBlockAppointmentTime.Add(new tb_BlockAppointmentTime()
                             {
                                 Block_index = Guid.NewGuid(),
@@ -3011,83 +3062,88 @@ namespace Business.Services
                 DataAccess.Models.GI.Table.im_TruckLoadItem getitem_TruckLoad = new DataAccess.Models.GI.Table.im_TruckLoadItem();
                 ms_VehicleType gettype_Vehicle = new ms_VehicleType();
 
-                
-                List<DataAccess.Models.GI.Table.im_TruckLoad> TruckLoad = dbGI.im_TruckLoad.Where(c => (c.Is_Booking == null || c.Is_Booking == 0) && c.UDF_1 != "NB").OrderBy(c=> c.TruckLoad_No).ToList();
+
+                List<DataAccess.Models.GI.Table.im_TruckLoad> TruckLoad = dbGI.im_TruckLoad.Where(c => (c.Is_Booking == null || c.Is_Booking == 0) && c.UDF_1 != "NB").OrderBy(c => c.TruckLoad_No).ToList();
                 if (TruckLoad.Count <= 0)
                 {
                     mess = "Can not find dock";
                     save = false;
                 }
-                else {
+                else
+                {
                     if (save)
                     {
                         List<Ms_Dock> get_dock = new List<Ms_Dock>();
-                        
+
                         foreach (DataAccess.Models.GI.Table.im_TruckLoad get_TruckLoad in TruckLoad)
                         {
-                            Guid Documenttype__index; 
+                            Guid Documenttype__index;
                             string Documenttype_id;
-                            string Documenttype_name; 
+                            string Documenttype_name;
                             if (get_TruckLoad.DocumentRef_No6 == "1")
                             {
                                 get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("8DC27B53-6F51-41BC-824F-6ABAD656284C") && c.IsActive == 1).ToList();
                                 Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
                                 Documenttype_id = "FROZEN01";
                                 Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
-                                
+
                             }
-                            else {
+                            else
+                            {
                                 get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
                                 Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
                                 Documenttype_id = "OUT01";
                                 Documenttype_name = "รับสินค้า-OutBound";
                             }
 
-                            
+
 
                             LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Shipment No : " + get_TruckLoad.TruckLoad_No);
                             save = true;
                             mess = "";
                             Time = get_TruckLoad.DocumentRef_No5;
-                            
+
                             if (get_dock.Count() > 0)
                             {
                                 listdock = get_dock.Select(c => c.Dock_Index).ToList();
                                 gettime = db.Ms_DockQoutaInterval.Where(c => listdock.Contains(c.Dock_Index)).ToList();
                                 gettime_new = (from DQT in db.Ms_DockQoutaInterval.Where(c => listdock.Contains(c.Dock_Index) && c.IsBreakTime == false)
-                                           join D in get_dock on DQT.Dock_Index equals D.Dock_Index
-                                           select new DockInteval
-                                           {
-                                              DockQoutaInterval_Index =  DQT.DockQoutaInterval_Index,
-                                              Interval_Start = DQT.Interval_Start,
-                                              Interval_End = DQT.Interval_End,
-                                              Dock_Index = D.Dock_Index,
-                                              Dock_Id = D.Dock_Id,
-                                              Dock_Name = D.Dock_Name,
-                                              seq = D.seq
-                                           }).ToList();
+                                               join D in get_dock on DQT.Dock_Index equals D.Dock_Index
+                                               select new DockInteval
+                                               {
+                                                   DockQoutaInterval_Index = DQT.DockQoutaInterval_Index,
+                                                   Interval_Start = DQT.Interval_Start,
+                                                   Interval_End = DQT.Interval_End,
+                                                   Dock_Index = D.Dock_Index,
+                                                   Dock_Id = D.Dock_Id,
+                                                   Dock_Name = D.Dock_Name,
+                                                   seq = D.seq
+                                               }).ToList();
                             }
-                            else {
+                            else
+                            {
                                 mess = "Can not find dock";
                                 save = false;
                             }
 
-                            if (get_TruckLoad != null) {
-                  
+                            if (get_TruckLoad != null)
+                            {
+
                                 getitem_TruckLoad = dbGI.im_TruckLoadItem.FirstOrDefault(c => c.TruckLoad_Index == get_TruckLoad.TruckLoad_Index);
                                 if (getitem_TruckLoad == null)
                                 {
                                     mess = "This TruckLoad didn't Ref_planGI ";
                                     save = false;
                                 }
-                                if (!string.IsNullOrEmpty(Time)){
+                                if (!string.IsNullOrEmpty(Time))
+                                {
                                     DateTime date_Booking = get_TruckLoad.Expect_Pickup_Date.Value.TrimTime().AddHours(double.Parse(Time));
                                     if (DateTime.Now > date_Booking)
                                     {
                                         mess = "เกินเวลาจอง Dock";
                                         save = false;
                                     }
-                                    string Time_S,Time_E;
+                                    string Time_S, Time_E;
                                     if (get_TruckLoad.DocumentRef_No6 == "1")
                                     {
                                         Time_S = Time + ":00";
@@ -3116,11 +3172,13 @@ namespace Business.Services
                                                 mess = "ประตูในช่วงเวลาที่กำหนดไม่ว่าง";
                                                 save = false;
                                             }
-                                            else {
+                                            else
+                                            {
                                                 LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Used same Dock : " + truckloadBooking.Dock_Name);
                                             }
                                         }
-                                        else {
+                                        else
+                                        {
                                             LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Old Dock Already Used: " + truckloadBooking.Dock_Name);
                                             List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
                                             DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
@@ -3143,7 +3201,8 @@ namespace Business.Services
                                         truckloadBooking.Update_By = "System Yard";
                                         truckloadBooking.Update_Date = DateTime.Now;
                                     }
-                                    else {
+                                    else
+                                    {
                                         List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
                                         DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
                                         if (gettime_frist != null)
@@ -3161,19 +3220,22 @@ namespace Business.Services
                                             save = false;
                                         }
                                     }
-                                    
+
                                 }
-                                else {
+                                else
+                                {
                                     mess = "This Route Time didn't Config";
                                     save = false;
                                 }
                                 gettype_Vehicle = dbMS.ms_VehicleType.FirstOrDefault(c => c.VehicleType_Id == get_TruckLoad.VehicleType_Id);
-                                if (gettype_Vehicle == null){
+                                if (gettype_Vehicle == null)
+                                {
                                     mess = "ประเภทรถที่ส่งไม่ถูกกำหนด การจอง";
                                     save = false;
                                 }
                             }
-                            else {
+                            else
+                            {
                                 mess = "Can not find TruckLoad No";
                                 save = false;
 
@@ -3316,12 +3378,12 @@ namespace Business.Services
                                 {
                                     LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess Error: " + JsonConvert.SerializeObject(ex));
                                 }
-                                
-                                
+
+
                             }
                             if (mess == "")
                             {
-                                
+
                                 get_TruckLoad.Is_Booking = 1;
                                 get_TruckLoad.Document_Remark = "สำเร็จ";
                                 LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound type: " + get_TruckLoad.Document_Remark);
@@ -3351,7 +3413,7 @@ namespace Business.Services
                                     {
                                         LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess Error: " + JsonConvert.SerializeObject(ex));
                                     }
-                                    
+
                                 }
 
                             }
@@ -3360,7 +3422,7 @@ namespace Business.Services
                             {
                                 dbGI.SaveChanges();
                                 myTransactionGI.Commit();
-                                LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound : true" );
+                                LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound : true");
                             }
                             catch (Exception saveEx)
                             {
@@ -3371,7 +3433,7 @@ namespace Business.Services
                         }
                     }
                 }
-                
+
 
                 mess = "S";
                 return mess;
@@ -3403,7 +3465,7 @@ namespace Business.Services
                 string time = "";
 
                 var get_appointment = db.Tb_Appointment.FirstOrDefault(c => c.Appointment_Index == model.Appointment_Index && c.Document_status != 0);
-                
+
                 if (get_appointment != null)
                 {
 
@@ -3425,7 +3487,7 @@ namespace Business.Services
                         result.ResultIsUse = false;
                         result.ResultMsg = "ไม่สามารถ ReAssign ได้เนื่องจาก Appointment ถูก check in Gate แล้ว";
                         return result;
-                        
+
                     }
                     Tb_AppointmentItem appointmentItem = db.Tb_AppointmentItem.FirstOrDefault(c => c.Appointment_Index == model.Appointment_Index);
                     var checkstatus = dbGI.View_CheckReport_Status.Where(c => c.TruckLoad_No == appointmentItem.Ref_Document_No && c.Document_StatusDocktoStg == null).ToList();
@@ -3439,13 +3501,13 @@ namespace Business.Services
                     {
                         result.ResultIsUse = true;
                     }
-                    type = get_appointment.DocumentType_Index == Guid.Parse("c392d865-8e69-4985-b72f-2421ebe8bcdb") || get_appointment.DocumentType_Index ==  Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7") ? true : false;
+                    type = get_appointment.DocumentType_Index == Guid.Parse("c392d865-8e69-4985-b72f-2421ebe8bcdb") || get_appointment.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7") ? true : false;
                     LoggingService.DataLogLines("ReAssign", "ReAssign" + DateTime.Now.ToString("yyyy-MM-dd"), jsonData);
                     LoggingService.DataLogLines("ReAssign", "ReAssign" + DateTime.Now.ToString("yyyy-MM-dd"), "Appointment_Id : " + model.Appointment_Id);
 
                     string appointmentId = GetDocumentNumber(get_appointment.DocumentType_Index, DateTime.Now);
 
-                    type = get_appointment.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB") || get_appointment.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7")  ? true : false;
+                    type = get_appointment.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB") || get_appointment.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7") ? true : false;
 
                     Tb_Appointment newAppointment = new Tb_Appointment
                     {
@@ -3577,13 +3639,13 @@ namespace Business.Services
                                     OLD_truckloadBooking.Update_By = model.Create_By;
                                     OLD_truckloadBooking.Update_Date = DateTime.Now;
                                 }
-                                
+
 
                                 save = true;
 
                             }
 
-                            
+
 
                             if (save)
                             {
@@ -3637,7 +3699,8 @@ namespace Business.Services
                     }
 
                 }
-                else {
+                else
+                {
                     result.ResultIsUse = false;
                     result.ResultMsg = "ไม่สามารถ ReAssign ได้เนื่องจากเอกสารไม่ได้ถูกยืนยัน";
                     return result;
@@ -3697,7 +3760,8 @@ namespace Business.Services
                     {
                         Dock_type = Guid.Parse("8DC27B53-6F51-41BC-824F-6ABAD656284C");
                     }
-                    else {
+                    else
+                    {
                         Dock_type = Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE");
                     }
 
@@ -3748,12 +3812,12 @@ namespace Business.Services
                         else
                         {
                             //Time_E = data.expect_Pickup_Time == "23" ? data.expect_Pickup_Time + ":59" : ((int.Parse(data.expect_Pickup_Time) + 1).ToString().Length > 1 ? (int.Parse(data.expect_Pickup_Time) + 1).ToString() : "0" + (int.Parse(data.expect_Pickup_Time) + 1).ToString()) + ":59";
-                            Time_E = data.expect_Pickup_Time == "23" ?  "00:59" : ((int.Parse(data.expect_Pickup_Time) + 1).ToString().Length > 1 ? (int.Parse(data.expect_Pickup_Time) + 1).ToString() : "0" + (int.Parse(data.expect_Pickup_Time) + 1).ToString()) + ":59";
+                            Time_E = data.expect_Pickup_Time == "23" ? "00:59" : ((int.Parse(data.expect_Pickup_Time) + 1).ToString().Length > 1 ? (int.Parse(data.expect_Pickup_Time) + 1).ToString() : "0" + (int.Parse(data.expect_Pickup_Time) + 1).ToString()) + ":59";
                         }
-                        
-                       
 
-                        
+
+
+
                         LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "Appointment ID : " + get_update.Appointment_Id);
                         LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "get_update.Appointment_Time : " + get_update.Appointment_Time);
                         LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "Time_S : " + Time_S);
@@ -3761,7 +3825,7 @@ namespace Business.Services
                         if (get_update.Appointment_Time != (Time_S + " - " + Time_E))
                         {
                             tb_TruckloadBooking truckloadBooking = db.tb_TruckloadBooking.Where(c => c.Ref_Document_No == data.Truckload_no && c.IsActive == 1).FirstOrDefault();
-                            
+
                             if (truckloadBooking != null)
                             {
                                 LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "truckloadBooking : " + JsonConvert.SerializeObject(truckloadBooking));
@@ -3851,7 +3915,7 @@ namespace Business.Services
                                 Create_By = "OMS With new Dock",
                                 Create_Date = DateTime.Now,
                                 Document_status = 5
-                            }; 
+                            };
 
                             LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "newAppointment : " + JsonConvert.SerializeObject(newAppointment));
 
@@ -3963,10 +4027,11 @@ namespace Business.Services
                                 db.Tb_YardBalance.RemoveRange(yardBalance);
                             }
                         }
-                        else {
+                        else
+                        {
                             string appointmentId = GetDocumentNumber(get_update.DocumentType_Index, DateTime.Now);
                             LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "update with old dock ");
-                            LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "update with old dock ID : "+ appointmentId);
+                            LoggingService.DataLogLines("Update_Booking", "Update_Booking" + DateTime.Now.ToString("yyyy-MM-dd"), "update with old dock ID : " + appointmentId);
 
                             Tb_Appointment newAppointment = new Tb_Appointment
                             {
@@ -4035,7 +4100,7 @@ namespace Business.Services
                                 Create_By = "OMS With old Dock",
                                 Create_Date = DateTime.Now
                             };
-                            
+
 
                             db.Tb_Appointment.Add(newAppointment);
                             db.Tb_AppointmentItem.Add(newAppointmentItem);
@@ -4300,7 +4365,7 @@ namespace Business.Services
             try
             {
                 Logtxt LoggingService = new Logtxt();
-                LoggingService.DataLogLines("check_Update", "check_Update_"+ data.Truckload_no+"_" + DateTime.Now.ToString("yyyy-MM-dd"), "Start Check Booking" + DateTime.Now.ToString("yyyy-MM-dd-HHmm"));
+                LoggingService.DataLogLines("check_Update", "check_Update_" + data.Truckload_no + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Start Check Booking" + DateTime.Now.ToString("yyyy-MM-dd-HHmm"));
                 LoggingService.DataLogLines("check_Update", "check_Update_" + data.Truckload_no + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Json" + body);
                 LoggingService.DataLogLines("check_Update", "check_Update_" + data.Truckload_no + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "data" + JsonConvert.SerializeObject(data));
 
@@ -4315,11 +4380,13 @@ namespace Business.Services
                         result.ResultMsg = "shipment นี้ถูก checkin ไปแล้ว ไม่สามารถทำการยกเลิกได้";
                         return result;
                     }
-                    else {
+                    else
+                    {
                         result.ResultIsUse = true;
                     }
                 }
-                else{
+                else
+                {
                     if (data.status == "c")
                     {
                         var checkstatus = dbGI.View_CheckReport_Status.Where(c => c.TruckLoad_No == data.Truckload_no).ToList();
@@ -4335,7 +4402,8 @@ namespace Business.Services
                             result.ResultIsUse = true;
                         }
                     }
-                    else {
+                    else
+                    {
                         var checkstatus = dbGI.View_CheckReport_Status.Where(c => c.TruckLoad_No == data.Truckload_no && c.Document_StatusDocktoStg == null).ToList();
                         if (checkstatus.Count() > 0)
                         {
@@ -4349,9 +4417,9 @@ namespace Business.Services
                             result.ResultIsUse = true;
                         }
                     }
-                    
+
                 }
-                
+
 
                 return result;
             }
@@ -4453,7 +4521,8 @@ namespace Business.Services
                     }
                     else { return false; }
                 }
-                else {
+                else
+                {
                     var MyTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                     try
                     {
@@ -4466,10 +4535,10 @@ namespace Business.Services
                         throw saveEx;
                     }
                 }
-                
 
 
-                
+
+
 
                 return true;
             }
@@ -4750,7 +4819,8 @@ namespace Business.Services
             try
             {
                 CheckInModel model = CheckIn.GetCheckInModel(jsonData);
-                if (model.Appointment_Id == null) {
+                if (model.Appointment_Id == null)
+                {
                     result.ResultIsUse = false;
                     result.ResultMsg = "AppointmentItem not found";
                     return result;
@@ -4914,7 +4984,8 @@ namespace Business.Services
                 //}
 
                 List<Tb_YardBalance> appointmentItem = db.Tb_YardBalance.Where(w => w.Appointment_Id == model.Appointment_Id).ToList();
-                if (appointmentItem is null) {
+                if (appointmentItem is null)
+                {
                     result.ResultIsUse = false;
                     result.ResultMsg = "AppointmentItem not found";
                     return result;
@@ -4929,7 +5000,8 @@ namespace Business.Services
                         result.ResultMsg = "Dock is use";
                         return result;
                     }
-                    if (item.Status_Id != 0) {
+                    if (item.Status_Id != 0)
+                    {
                         result.ResultIsUse = false;
                         result.ResultMsg = "Invalid CheckIn : AppointmentItem already Processes";
                         return result;
@@ -4945,7 +5017,8 @@ namespace Business.Services
                     }
 
                     Ms_DockQoutaInterval dockQoutaInterval = db.Ms_DockQoutaInterval.Find(item.DockQoutaInterval_Index);
-                    if (dockQoutaInterval is null) {
+                    if (dockQoutaInterval is null)
+                    {
                         result.ResultIsUse = false;
                         result.ResultMsg = "DockQoutaInterval not found";
                         return result;
@@ -5061,7 +5134,7 @@ namespace Business.Services
                     dock_update.Last_Checkin = DateTime.Now;
                     dock_update.Dock_use = 1;
 
-                    
+
 
                 }
                 Tb_Appointment appointmentstatus = db.Tb_Appointment.FirstOrDefault(w => w.Appointment_Id == model.Appointment_Id);
@@ -5291,7 +5364,7 @@ namespace Business.Services
                 CheckOutModel model = CheckOut.GetCheckOutModel(jsonData);
                 id = model.Appointment_Id;
                 LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Start Checkout" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-                LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout ID : " + model.Appointment_Id +" " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout ID : " + model.Appointment_Id + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 if (model.Appointment_Id == null) { throw new Exception("Invalid Parameter : Appointment Id not found"); }
 
                 List<Tb_YardBalance> appointmentItem = db.Tb_YardBalance.Where(w => w.Appointment_Id == model.Appointment_Id).ToList();
@@ -5398,7 +5471,7 @@ namespace Business.Services
                             {
                                 LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Send TMS  ");
                                 var Appitem = db.Tb_AppointmentItem.FirstOrDefault(c => c.AppointmentItem_Index == item.AppointmentItem_Index);
-                                LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Shipment No. : "+ Appitem.Ref_Document_No + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                                LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Shipment No. : " + Appitem.Ref_Document_No + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                                 dbGI.Database.SetCommandTimeout(360);
 
                                 var TM_NO = new SqlParameter("@TruckLoad_No", Appitem.Ref_Document_No);
@@ -5424,7 +5497,7 @@ namespace Business.Services
                                 }
                                 else
                                 {
-                                    
+
                                     result.ResultIsUse = false;
                                     result.ResultMsg = "ไม่พบ Tag ที่จะทำการส่ง";
                                     LoggingService.DataLogLines("Checkout", "Checkout" + model.Appointment_Id + "_" + DateTime.Now.ToString("yyyy-MM-dd"), "Checkout Error : " + result.ResultMsg + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
@@ -5435,7 +5508,7 @@ namespace Business.Services
                                 itemX.transportManifest_No = Appitem.Ref_Document_No;
                                 itemX.release_Index = Guid.NewGuid();
                                 transportManifest.items.Add(itemX);
-                                
+
                             }
                         }
                         //if (transportManifest.items.Count > 0)
@@ -5455,7 +5528,7 @@ namespace Business.Services
                         //        }
                         //    //}
                         //}
-                        
+
 
                     }
 
@@ -5548,7 +5621,7 @@ namespace Business.Services
             }
         }
         #endregion
-        
+
         #region + Delete +
         public bool DeleteCheckOut(string jsonData)
         {
@@ -5647,12 +5720,12 @@ namespace Business.Services
                 }
                 List<Guid> appointment_guid = appointment.Select(c => c.Appointment_Index).ToList();
                 var statusModels = new List<int?>();
-                
+
                 List<AppointmentWithItemModel> result = new List<AppointmentWithItemModel>();
                 AppointmentWithItemModel apponitmentlist;
 
                 var statusModels_InAndOut = new List<int?>();
-                
+
                 var qurey = db.Tb_YardBalance.Where(
                         w => w.IsDelete == 0 &&
                              w.Status_Id != -1 &
@@ -5667,12 +5740,13 @@ namespace Business.Services
                 {
                     qurey = qurey.Where(w => w.Appointment_Date >= model.Appointment_Date && w.Appointment_Date <= model.Appointment_Date_To).ToList();
                 }
-                else {
+                else
+                {
                     qurey = qurey.Where(w => w.Appointment_Date >= DateTime.Now.TrimTime() && w.Appointment_Date <= DateTime.Now.TrimTime().AddDays(1)).ToList();
                 }
 
                 List<String> yardBalance_id = qurey.GroupBy(g => g.Appointment_Id).Select(s => s.Key).ToList();
-                
+
                 foreach (var yardbalanceList in yardBalance_id)
                 {
 
@@ -5690,8 +5764,8 @@ namespace Business.Services
                     apponitmentlist.Owner_Id = yardBalance.Owner_Id;
                     apponitmentlist.Owner_Index = yardBalance.Owner_Index;
                     apponitmentlist.Owner_Name = yardBalance.Owner_Name;
-                    apponitmentlist.Status = yardBalance.CheckIn_Index.HasValue ? (yardBalance.CheckOut_Index.HasValue ? 2 : 1): 0;
-                    apponitmentlist.Status_Desc = yardBalance.CheckIn_Index.HasValue ? (yardBalance.CheckOut_Index.HasValue ? "Checked Out" : "Checked In") : "" ;
+                    apponitmentlist.Status = yardBalance.CheckIn_Index.HasValue ? (yardBalance.CheckOut_Index.HasValue ? 2 : 1) : 0;
+                    apponitmentlist.Status_Desc = yardBalance.CheckIn_Index.HasValue ? (yardBalance.CheckOut_Index.HasValue ? "Checked Out" : "Checked In") : "";
                     apponitmentlist.Create_By = yardBalance.Create_By;
                     apponitmentlist.Update_By = yardBalance.Update_By;
                     apponitmentlist.Cancel_By = yardBalance.Cancel_By;
@@ -5728,7 +5802,7 @@ namespace Business.Services
                         itemyard.Cancel_By = moreitem.Cancel_By;
                         apponitmentlist.Items.Add(itemyard);
                     }
-                    
+
                     result.Add(apponitmentlist);
                 }
 
@@ -5736,7 +5810,7 @@ namespace Business.Services
                 int seq = 0;
                 result.OrderBy(o => o.Appointment_Id).ToList().ForEach(e =>
                 { e.Seq = ++seq; resultOrderBy.Add(e); });
-                
+
                 return resultOrderBy;
             }
             catch (Exception ex)
@@ -5950,7 +6024,7 @@ namespace Business.Services
             try
             {
                 var query = db.View_RPT_Appointment.AsQueryable();
-                LoggingService.DataLogLines("ReportPrintOutApponitment", "ReportPrintOutApponitment" + DateTime.Now.ToString("yyyy-MM-dd"), "data.Appointment_Index"+ data.Appointment_Index + DateTime.Now.ToString("yyyy-MM-dd-HHmm"));
+                LoggingService.DataLogLines("ReportPrintOutApponitment", "ReportPrintOutApponitment" + DateTime.Now.ToString("yyyy-MM-dd"), "data.Appointment_Index" + data.Appointment_Index + DateTime.Now.ToString("yyyy-MM-dd-HHmm"));
                 if (data.Appointment_Index != null)
                 {
                     query = query.Where(c => c.Appointment_Index == data.Appointment_Index);
@@ -5972,7 +6046,7 @@ namespace Business.Services
                     Bitmap qrCodeImage;
 
                     QRCoder.QRCodeGenerator qrGenerator = new QRCoder.QRCodeGenerator();
-                    
+
 
                     List<string> ref_no_item = new List<string>();
 
@@ -5981,7 +6055,7 @@ namespace Business.Services
                         QRCoder.QRCodeData qrCodeData = qrGenerator.CreateQrCode(List.Appointment_Id, QRCoder.QRCodeGenerator.ECCLevel.Q);
                         QRCoder.QRCode qrCode = new QRCoder.QRCode(qrCodeData);
                         qrCodeImage = qrCode.GetGraphic(20);
-                        
+
                         var TruckLoad_no = dbGI.im_TruckLoad.FirstOrDefault(C => C.TruckLoad_No == List.Ref_Document_No);
                         ref_no_item = dbGI.im_TruckLoadItem.Where(c => c.TruckLoad_Index == TruckLoad_no.TruckLoad_Index).GroupBy(g => g.PlanGoodsIssue_No).Select(s => s.Key).ToList();
                         if (TruckLoad_no != null)
@@ -5989,12 +6063,13 @@ namespace Business.Services
                             truckload = TruckLoad_no.TruckLoad_No;
                         }
                     }
-                    else {
+                    else
+                    {
 
                         QRCoder.QRCodeData qrCodeData = qrGenerator.CreateQrCode(List.Appointment_Id, QRCoder.QRCodeGenerator.ECCLevel.Q);
                         QRCoder.QRCode qrCode = new QRCoder.QRCode(qrCodeData);
                         qrCodeImage = qrCode.GetGraphic(20);
-                        
+
                         var plan_no = dbGR.IM_PlanGoodsReceive.FirstOrDefault(C => C.PlanGoodsReceive_No == List.Ref_Document_No);
                         ref_no_item = dbGR.IM_PlanGoodsReceiveItem.Where(c => c.PlanGoodsReceive_Index == plan_no.PlanGoodsReceive_Index).GroupBy(g => g.Ref_Document_No).Select(s => s.Key).ToList();
                     }
@@ -6114,7 +6189,8 @@ namespace Business.Services
                 {
                     appointGatecheck = appointGatecheck.Where(c => c.Appointment_Date >= model.Appointment_Date && c.Appointment_Date <= model.Appointment_Date_To).ToList();
                 }
-                else {
+                else
+                {
                     appointGatecheck = appointGatecheck.Where(c => c.Appointment_Date >= DateTime.Now.TrimTime() && c.Appointment_Date <= DateTime.Now.TrimTime().AddDays(1)).ToList();
                 }
                 if (!string.IsNullOrEmpty(model.Document_no))
@@ -6129,7 +6205,7 @@ namespace Business.Services
 
                 List<AppointmentWithItemModel> result = new List<AppointmentWithItemModel>();
                 AppointmentWithItemModel apponitmentlist;
-                
+
                 foreach (var itemList in appointGatecheck)
                 {
                     apponitmentlist = new AppointmentWithItemModel();
@@ -6176,7 +6252,7 @@ namespace Business.Services
                                 var time_in = gatecheckin.CheckIn_Time.ToString().Split(':');
                                 datein = datein.GetValueOrDefault().AddHours(double.Parse(time_in[0])).AddMinutes(double.Parse(time_in[1]));
                             }
-                            
+
                             apponitmentlist.CheckIn_Date = datein;
                             apponitmentlist.CheckIn_By = gatecheckin.CheckIn_By;
 
@@ -6202,8 +6278,8 @@ namespace Business.Services
 
                 List<AppointmentWithItemModel> resultOrderBy = new List<AppointmentWithItemModel>();
                 int seq = 0;
-                result.OrderByDescending(o => o.Appointment_Date).ThenByDescending(c=> c.Appointment_Time).ThenByDescending(c=> c.Appointment_Id).ToList().ForEach(e =>
-                { e.Seq = ++seq; resultOrderBy.Add(e); });
+                result.OrderByDescending(o => o.Appointment_Date).ThenByDescending(c => c.Appointment_Time).ThenByDescending(c => c.Appointment_Id).ToList().ForEach(e =>
+                  { e.Seq = ++seq; resultOrderBy.Add(e); });
 
                 return resultOrderBy;
             }
@@ -6279,9 +6355,10 @@ namespace Business.Services
                     apponitmentlist.Update_By = appointmentitem.Update_By;
                     apponitmentlist.Cancel_By = itemList.Cancel_By;
 
-                    if (!string.IsNullOrEmpty(itemList.GateCheckIn_Index.ToString())) {
+                    if (!string.IsNullOrEmpty(itemList.GateCheckIn_Index.ToString()))
+                    {
                         var gatecheckin = db.Tb_YardBalance.FirstOrDefault(c => c.GateCheckIn_Index == itemList.GateCheckIn_Index);
-                        if (gatecheckin != null )
+                        if (gatecheckin != null)
                         {
                             apponitmentlist.CheckIn_Date = gatecheckin.GateCheckIn_Date;
                             apponitmentlist.GateCheckIn_Status = gatecheckin.GateCheckIn_Status;
@@ -6291,7 +6368,7 @@ namespace Business.Services
                             apponitmentlist.GateCheckOut_Status = gatecheckin.GateCheckOut_Status;
                             apponitmentlist.CheckOut_By = gatecheckin.Create_By;
                         }
-                  
+
                     }
 
 
@@ -6318,12 +6395,12 @@ namespace Business.Services
                     //}
                     result.Add(apponitmentlist);
                 }
-                
+
                 List<AppointmentWithItemModel> resultOrderBy = new List<AppointmentWithItemModel>();
                 int seq = 0;
                 result.OrderBy(o => o.Appointment_Id).ToList().ForEach(e =>
                 { e.Seq = ++seq; resultOrderBy.Add(e); });
-                
+
                 return resultOrderBy;
             }
             catch (Exception ex)
@@ -6347,7 +6424,7 @@ namespace Business.Services
                     var dateE = date[1];
                 }
 
-                List<Tb_Appointment> appointment = db.Tb_Appointment.Where(c => c.Document_status ==2 ).ToList();
+                List<Tb_Appointment> appointment = db.Tb_Appointment.Where(c => c.Document_status == 2).ToList();
                 if (!string.IsNullOrEmpty(model.Appointment_Id))
                 {
                     appointment = appointment.Where(c => c.Appointment_Id == model.Appointment_Id).ToList();
@@ -6451,7 +6528,7 @@ namespace Business.Services
         #endregion
 
         #region + GateCheckIn +
-        
+
         #region + Save +
         public string SaveGateCheckIn(string jsonData)
         {
@@ -6480,7 +6557,7 @@ namespace Business.Services
 
                     Ms_DockQoutaInterval dockQoutaInterval = db.Ms_DockQoutaInterval.Find(item.DockQoutaInterval_Index);
                     if (dockQoutaInterval is null) { throw new Exception("DockQoutaInterval not found"); }
-                    
+
                     DateTime checkInDate = (model.CheckIn_Date ?? DateTime.Now).TrimTime();
                     TimeSpan checkInTime = model.CheckIn_Time ?? TimeSpan.Parse(DateTime.Now.ToShortTimeString());
 
@@ -6501,7 +6578,7 @@ namespace Business.Services
 
                     string start = ConfigurationManager.AppSettings["Config:TIMESTART"];
                     string end = ConfigurationManager.AppSettings["Config:TIMEEND"];
-                    string checkInStatus ="";
+                    string checkInStatus = "";
                     if (dockQoutaInterval.checkIn_Limit_Before != null && dockQoutaInterval.checkIn_Limit_After != null)
                     {
                         if (dockQoutaInterval.checkIn_Limit_Before != null)
@@ -6522,7 +6599,7 @@ namespace Business.Services
                         }
                         checkInStatus = "On Time";
                     }
-                    
+
 
                     item.Status_Id = 0;
 
@@ -6674,9 +6751,9 @@ namespace Business.Services
                 if (model.Appointment_Id == null) { throw new Exception("Invalid Parameter : Appointment Id not found"); }
 
                 var Gateout = db.Tb_Appointment.FirstOrDefault(C => C.Appointment_Id == model.Appointment_Id);
-                if (Gateout.GateCheckOut_Index !=null)
+                if (Gateout.GateCheckOut_Index != null)
                 {
-                    return  "ไม่สามารถ Check out ได้เนื่องจากรถได้ทำการ check out ไปแล้ว";
+                    return "ไม่สามารถ Check out ได้เนื่องจากรถได้ทำการ check out ไปแล้ว";
                 }
 
                 List<Tb_YardBalance> appointmentItem = db.Tb_YardBalance.Where(w => w.Appointment_Id == model.Appointment_Id).ToList();
@@ -6779,7 +6856,7 @@ namespace Business.Services
                         //                var des = "นำจ่าย";
                         //                try
                         //                {
-                                            
+
                         //                    var resmodel = new
                         //                    {
                         //                        referenceNo = itemList.PlanGoodsIssue_No,
@@ -6801,7 +6878,7 @@ namespace Business.Services
                         //        }
                         //    }
                         //}
-                        
+
                     }
                     catch (Exception saveEx)
                     {
@@ -6839,7 +6916,8 @@ namespace Business.Services
                 {
                     appointmentItem = appointmentItem.Where(w => w.Appointment_Date.DateBetweenCondition(model.Appointment_Date, model.Appointment_Date_To, true)).ToList();
                 }
-                else {
+                else
+                {
                     appointmentItem = appointmentItem.Where(w => w.Appointment_Date.DateBetweenCondition(DateTime.Now.TrimTime(), DateTime.Now.AddDays(1).TrimTime(), true)).ToList();
                 }
                 if (!string.IsNullOrEmpty(model.Appointment_Id))
@@ -6856,7 +6934,8 @@ namespace Business.Services
                     {
                         continue;
                     }
-                    else {
+                    else
+                    {
                         id = app.Appointment_Id;
                     }
                     //var dock_status = dbMS.Ms_Dock.FirstOrDefault(c => c.Dock_Index == app.Dock_Index);
@@ -6864,7 +6943,7 @@ namespace Business.Services
                     //{
                     //    continue;
                     //}
-                    var gatecheck = db.Tb_Appointment.FirstOrDefault(c => c.Appointment_Index == app.Appointment_Index && c.GateCheckIn_Index != null  && c.Car_Inspection == 1);
+                    var gatecheck = db.Tb_Appointment.FirstOrDefault(c => c.Appointment_Index == app.Appointment_Index && c.GateCheckIn_Index != null && c.Car_Inspection == 1);
                     if (gatecheck == null) { continue; }
                     var detail = db.Tb_AppointmentItemDetail.FirstOrDefault(c => c.Appointment_Index == app.Appointment_Index);
                     var item = new AppointmentWithItemModel
@@ -6907,7 +6986,7 @@ namespace Business.Services
                 string userBy = model.Create_By;
                 DateTime userDate = DateTime.Now;
                 var dockfill = dbMS.Ms_Dock.FirstOrDefault(c => c.Dock_Index == model.Dock_Index);
-                if (dockfill == null )
+                if (dockfill == null)
                 {
                     return "E";
                 }
@@ -6920,10 +6999,10 @@ namespace Business.Services
                 {
                     return "This Appointment Already in Q";
                 }
-                List<Tb_AppointmentItem> appitemF = db.Tb_AppointmentItem.Where(c=> c.Appointment_Index == appointment.Appointment_Index).ToList();
+                List<Tb_AppointmentItem> appitemF = db.Tb_AppointmentItem.Where(c => c.Appointment_Index == appointment.Appointment_Index).ToList();
                 List<Tb_AppointmentItemDetail> apid = db.Tb_AppointmentItemDetail.Where(c => c.Appointment_Index == appointment.Appointment_Index).ToList();
                 List<Tb_YardBalance> ybl = db.Tb_YardBalance.Where(c => c.Appointment_Index == appointment.Appointment_Index).ToList();
-                LoggingService.DataLogLines("Approve_Q", "Approve_Q" + DateTime.Now.ToString("yyyy-MM-dd"), "check Dock" + appitemF[0].Dock_Index + " TO " +model.Dock_Index);
+                LoggingService.DataLogLines("Approve_Q", "Approve_Q" + DateTime.Now.ToString("yyyy-MM-dd"), "check Dock" + appitemF[0].Dock_Index + " TO " + model.Dock_Index);
                 if (appitemF[0].Dock_Index != model.Dock_Index)
                 {
                     var checkstatus = dbGI.View_CheckReport_Status.Where(c => c.TruckLoad_No == appitemF[0].Ref_Document_No && c.Document_StatusDocktoStg == null).ToList();
@@ -6933,7 +7012,7 @@ namespace Business.Services
                         return "Shipment นี้อยู่ระหว่างการ Wave กรุณารอทำรายการหลัง Wave เสร็จ";
                     }
                 }
-                
+
                 Ms_DockQoutaInterval dockQoutaInterval = db.Ms_DockQoutaInterval.FirstOrDefault(c => c.DockQoutaInterval_Index == model.dockQoutaInterval_Index);
                 if (dockQoutaInterval == null)
                 {
@@ -6976,12 +7055,12 @@ namespace Business.Services
                     item.Dock_Name = dockQoutaInterval.Dock_Name;
                     item.DockQoutaInterval_Index = dockQoutaInterval.DockQoutaInterval_Index;
                 }
-                
+
                 appointment.Document_status = 5;
                 appointment.In_queue = 1;
                 appointment.Update_By = userBy;
                 appointment.Update_Date = userDate;
-                
+
                 var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                 try
                 {
@@ -7031,7 +7110,7 @@ namespace Business.Services
                          w.IsDelete == 0 &&
                          w.Appointment_Index == model.Appointment_Index
                 ).ToList();
-                
+
                 var result = new List<ReportQYardViewModel>();
 
                 foreach (var app in appointmentItem)
@@ -7112,10 +7191,10 @@ namespace Business.Services
             Logtxt LoggingService = new Logtxt();
             try
             {
-                
+
                 LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Autoget_Q : " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 List<Guid> listappointment_In_Q = db.Tb_Appointment.Where(c => c.In_queue == null && c.GateCheckIn_Index != null && c.Car_Inspection == 1).Select(c => c.Appointment_Index).ToList();
-                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "listappointment_In_Q : "+ listappointment_In_Q.Count+" "+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "listappointment_In_Q : " + listappointment_In_Q.Count + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 var Appointmentitem = db.Tb_AppointmentItem.Where(c => listappointment_In_Q.Contains(c.Appointment_Index)).ToList();
                 foreach (var item in Appointmentitem)
                 {
@@ -7126,7 +7205,7 @@ namespace Business.Services
                     var dock_use = dbMS.Ms_Dock.FirstOrDefault(c => c.Dock_Index == item.Dock_Index);
                     if (dock_use.Dock_use == 0)
                     {
-                        
+
                         string[] make_time = item.Appointment_Time.Split('-');
                         var time = make_time[0].Trim().Split(':');
                         var time_h = item.Appointment_Date.AddHours(double.Parse(time[0])).AddMinutes(double.Parse(time[1])).AddMinutes(-30);
@@ -7135,7 +7214,7 @@ namespace Business.Services
                         LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Time : " + time_e + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                         if (time_h > DateTime.Now)
                         {
-                            LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Time Validate "+ time_h +" > " + DateTime.Now  +" "+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                            LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Time Validate " + time_h + " > " + DateTime.Now + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                             LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "------------------------------------------------------------------------------" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                             continue;
                         }
@@ -7181,7 +7260,7 @@ namespace Business.Services
                             LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Check User not found" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                             if (get_user.User_id != null)
                             {
-                                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Check User "+ get_user.User_id  +" "+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Check User " + get_user.User_id + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                                 var call_Q = callQueue(get_user.User_id);
                                 //var result_api = Utils.GetDataApi<string>(new AppSettingConfig().GetUrl("callQueue"), get_user.User_id);
                                 //if (result_api == "")
@@ -7197,7 +7276,7 @@ namespace Business.Services
                                 LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Check User not found" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                             }
                         }
-                        
+
                         var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
                         try
                         {
@@ -7210,7 +7289,8 @@ namespace Business.Services
                             throw saveEx;
                         }
                     }
-                    else {
+                    else
+                    {
                         LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Time : " + item.Dock_Name + "Is Use " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                         LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "------------------------------------------------------------------------------" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                         continue;
@@ -7221,7 +7301,7 @@ namespace Business.Services
             }
             catch (Exception ex)
             {
-                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "EX : "+ ex+" " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("Autoget_Q", "Autoget_Q" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "EX : " + ex + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 throw ex;
             }
         }
@@ -7234,7 +7314,7 @@ namespace Business.Services
             HttpWebResponse response = null;
             try
             {
-                LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "User : " + userId +" "+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "User : " + userId + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create($"{urlFireBase}driver/{userId}/queue/.json?auth={authFireBaseRealtimebase}");
 
                 var json = new
@@ -7261,7 +7341,7 @@ namespace Business.Services
                 }
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "User : Sucess "  + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                    LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "User : Sucess " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                     return "";
                 }
                 else
@@ -7273,7 +7353,7 @@ namespace Business.Services
             }
             catch (Exception ex)
             {
-                LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Error User : " + userId + " -----------------"+ ex.Message + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                LoggingService.DataLogLines("Call_moblie", "moblie" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Error User : " + userId + " -----------------" + ex.Message + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 throw new Exception($"(can't connect to realtime base) ExceptionMessage : {ex.Message}");
             }
         }
@@ -7284,7 +7364,8 @@ namespace Business.Services
         #region all status
 
         #region Before_GateCheckIn
-        public List<CheckQueueResponseViewModel> Before_GateCheckIn(string jsonData) {
+        public List<CheckQueueResponseViewModel> Before_GateCheckIn(string jsonData)
+        {
             try
             {
                 Logtxt LoggingService = new Logtxt();
@@ -7293,62 +7374,63 @@ namespace Business.Services
                 List<CheckQueueResponseViewModel> result = new List<CheckQueueResponseViewModel>();
 
                 var before_gatecheckin = (from am in db.Tb_Appointment.AsQueryable()
-                                         join ami in db.Tb_AppointmentItem.Where(c=> c.IsActive == 1 && c.IsDelete ==0) on am.Appointment_Index equals ami.Appointment_Index
-                                         join amid in db.Tb_AppointmentItemDetail.AsQueryable() on ami.AppointmentItem_Index equals amid.AppointmentItem_Index
-                                         join t_yb in db.Tb_YardBalance.AsQueryable() on ami.AppointmentItem_Index equals t_yb.AppointmentItem_Index into yb
+                                          join ami in db.Tb_AppointmentItem.Where(c => c.IsActive == 1 && c.IsDelete == 0) on am.Appointment_Index equals ami.Appointment_Index
+                                          join amid in db.Tb_AppointmentItemDetail.AsQueryable() on ami.AppointmentItem_Index equals amid.AppointmentItem_Index
+                                          join t_yb in db.Tb_YardBalance.AsQueryable() on ami.AppointmentItem_Index equals t_yb.AppointmentItem_Index into yb
                                           from yb_d in yb.DefaultIfEmpty()
                                           select new
-                                         {
-                                             am.Appointment_Index,
-                                             am.Appointment_Id,
-                                             am.Document_status,
-                                             am.GateCheckIn_Index,
-                                             am.DocumentType_Id,
-                                             am.DocumentType_Name,
-                                             am.Runing_Q,
-                                             am.Create_Date,
-                                             ami.Appointment_Date,
-                                             ami.Dock_Id,
-                                             ami.Dock_Name,
-                                             ami.Ref_Document_No,
-                                             ami.Appointment_Time,
-                                             amid.VehicleType_Id,
-                                             amid.VehicleType_Name,
-                                             amid.Vehicle_No,
-                                             yb_d.GateCheckIn_Date,
-                                             yb_d.GateCheckOut_Date
-                                         }).Where(c=> c.Document_status == 5 && c.GateCheckIn_Index == null );
-                var data = before_gatecheckin.Where(c => c.Vehicle_No == model.Vehicle_No && (c.Appointment_Date >= model.Appointment_Date && c.Appointment_Date <= model.Appointment_Date_To)).OrderByDescending(c=> c.Create_Date).ThenByDescending(c=> c.Appointment_Id).Take(1).ToList();
-                
-                foreach (var item in data) 
+                                          {
+                                              am.Appointment_Index,
+                                              am.Appointment_Id,
+                                              am.Document_status,
+                                              am.GateCheckIn_Index,
+                                              am.DocumentType_Id,
+                                              am.DocumentType_Name,
+                                              am.Runing_Q,
+                                              am.Create_Date,
+                                              ami.Appointment_Date,
+                                              ami.Dock_Id,
+                                              ami.Dock_Name,
+                                              ami.Ref_Document_No,
+                                              ami.Appointment_Time,
+                                              amid.VehicleType_Id,
+                                              amid.VehicleType_Name,
+                                              amid.Vehicle_No,
+                                              yb_d.GateCheckIn_Date,
+                                              yb_d.GateCheckOut_Date
+                                          }).Where(c => c.Document_status == 5 && c.GateCheckIn_Index == null);
+                var data = before_gatecheckin.Where(c => c.Vehicle_No == model.Vehicle_No && (c.Appointment_Date >= model.Appointment_Date && c.Appointment_Date <= model.Appointment_Date_To)).OrderByDescending(c => c.Create_Date).ThenByDescending(c => c.Appointment_Id).Take(1).ToList();
+
+                foreach (var item in data)
                 {
-                    result.Add(new CheckQueueResponseViewModel{
-                    Vehicle_Id = null,
-                    Vehicle_LicenseNo = item.Vehicle_No,
-                    Appointment_Id = item.Appointment_Id,
-                    Appointment_Date = item.Appointment_Date.ToString("yyyy-MM-dd"),
-                    Appointment_Time = item.Appointment_Time,
-                    Dock_ID = item.Dock_Id,
-                    Dock_Name = item.Dock_Name,
-                    VehicleType_Id = item.VehicleType_Id,
-                    VehicleType_Name = item.VehicleType_Name,
-                    Ref_Document_No = item.Ref_Document_No,
-                    DocumentType_Id = item.DocumentType_Id,
-                    DocumentType_Name = item.DocumentType_Name,
-                    GateCheckIn_Date = item.GateCheckIn_Date == null ? null : item.GateCheckIn_Date.Value.ToString("yyyy-MM-dd hh:mm:ss"),
-                    GateCheckOut_Date = item.GateCheckOut_Date == null ? null : item.GateCheckOut_Date.Value.ToString("yyyy-MM-dd hh:mm:ss"),
-                    Queue_No = item.Runing_Q,
-                    Before_Queue = "0003",
-                    Status = "CHECKIN",
-                    GateCheckIN_lat = Convert.ToDecimal(latti),
-                    GateCheckIN_long = Convert.ToDecimal(longti),
-                    GateCheckOUT_lat = Convert.ToDecimal(latti),
-                    GateCheckOUT_long = Convert.ToDecimal(longti),
-                    GateCheckIN_Radius = 1000,
-                    GateCheckOUT_Radius = 1000,
-                    GateCheckIn_NO = null,
-                    GateCheckOut_NO = null,
-                }); 
+                    result.Add(new CheckQueueResponseViewModel
+                    {
+                        Vehicle_Id = null,
+                        Vehicle_LicenseNo = item.Vehicle_No,
+                        Appointment_Id = item.Appointment_Id,
+                        Appointment_Date = item.Appointment_Date.ToString("yyyy-MM-dd"),
+                        Appointment_Time = item.Appointment_Time,
+                        Dock_ID = item.Dock_Id,
+                        Dock_Name = item.Dock_Name,
+                        VehicleType_Id = item.VehicleType_Id,
+                        VehicleType_Name = item.VehicleType_Name,
+                        Ref_Document_No = item.Ref_Document_No,
+                        DocumentType_Id = item.DocumentType_Id,
+                        DocumentType_Name = item.DocumentType_Name,
+                        GateCheckIn_Date = item.GateCheckIn_Date == null ? null : item.GateCheckIn_Date.Value.ToString("yyyy-MM-dd hh:mm:ss"),
+                        GateCheckOut_Date = item.GateCheckOut_Date == null ? null : item.GateCheckOut_Date.Value.ToString("yyyy-MM-dd hh:mm:ss"),
+                        Queue_No = item.Runing_Q,
+                        Before_Queue = "0003",
+                        Status = "CHECKIN",
+                        GateCheckIN_lat = Convert.ToDecimal(latti),
+                        GateCheckIN_long = Convert.ToDecimal(longti),
+                        GateCheckOUT_lat = Convert.ToDecimal(latti),
+                        GateCheckOUT_long = Convert.ToDecimal(longti),
+                        GateCheckIN_Radius = 1000,
+                        GateCheckOUT_Radius = 1000,
+                        GateCheckIn_NO = null,
+                        GateCheckOut_NO = null,
+                    });
                 }
 
                 LoggingService.DataLogLines("Before_GateCheckIn", "Before_GateCheckIn" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm"), "Before_GateCheckIn : " + JsonConvert.SerializeObject(result) + " " + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
@@ -7399,7 +7481,7 @@ namespace Business.Services
                                               yb_d.GateCheckIn_Date,
                                               yb_d.GateCheckOut_Date
                                           }).Where(c => c.Document_status == 1 && c.GateCheckIn_Index != null && c.In_queue == null);
-                var data = before_gatecheckin.Where(c => c.Vehicle_No == model.Vehicle_No && (c.Appointment_Date >= model.Appointment_Date && c.Appointment_Date <= model.Appointment_Date_To)).OrderByDescending(c=> c.Create_Date).ThenByDescending(c=> c.Appointment_Id).Take(1).ToList();
+                var data = before_gatecheckin.Where(c => c.Vehicle_No == model.Vehicle_No && (c.Appointment_Date >= model.Appointment_Date && c.Appointment_Date <= model.Appointment_Date_To)).OrderByDescending(c => c.Create_Date).ThenByDescending(c => c.Appointment_Id).Take(1).ToList();
 
                 foreach (var item in data)
                 {
@@ -7636,7 +7718,7 @@ namespace Business.Services
                             var itemX = new Item();
                             if (itemXX.TransportManifest_Index != null)
                             {
-                                
+
                                 var Appitem = db.Tb_AppointmentItem.FirstOrDefault(c => c.AppointmentItem_Index == item.AppointmentItem_Index);
                                 var TM_NO = new SqlParameter("@TruckLoad_No", Appitem.Ref_Document_No);
                                 var tagout = dbGI.View_tagout_with_truckload.FromSql("sp_View_tagout_with_truckload @TruckLoad_No", TM_NO).ToList();
@@ -7728,7 +7810,8 @@ namespace Business.Services
                                ami.Ref_Document_No
                                ,
                                ami.WareHouse_Index
-                           }).GroupBy(c => new {
+                           }).GroupBy(c => new
+                           {
                                c.Appointment_Index
                                ,
                                c.Appointment_Id
@@ -7758,7 +7841,8 @@ namespace Business.Services
                                c.Ref_Document_No
                                ,
                                c.WareHouse_Index
-                           }).Select(c => new {
+                           }).Select(c => new
+                           {
                                c.Key.Appointment_Index
                                ,
                                c.Key.Appointment_Id
@@ -7973,11 +8057,11 @@ namespace Business.Services
                 if (yardBalances.Count > 0)
                 {
                     result.ResultIsUse = false;
-                    result.ResultMsg = status_ByTMS.tm_no+" มีการ check in gate แล้ว กรุณไปถอยเอกสารที่ระบบ TMS ก่อน";
+                    result.ResultMsg = status_ByTMS.tm_no + " มีการ check in gate แล้ว กรุณไปถอยเอกสารที่ระบบ TMS ก่อน";
                     return result;
                 }
 
-                
+
                 result.ResultIsUse = true;
                 return result;
             }
@@ -8023,7 +8107,7 @@ namespace Business.Services
             {
                 olog.Logging("LineNoti", ex.ToString());
                 return false;
-                
+
             }
             //return true;
         }
@@ -8154,7 +8238,41 @@ namespace Business.Services
                 throw ex;
             }
         }
-        #endregion
-    }
 
+
+        public bool Update_Qcall_Status(QueueModel model)
+        {
+            try
+            {
+                bool result = false;
+
+                var resUpdate = dbQcall.tbl_qcall.Where(w => w.Appointment_Id == model.appointment_Id).FirstOrDefault();
+                if (resUpdate != null)
+                {
+                    resUpdate.Status = Convert.ToInt16(model.status);
+                }
+
+                var Transaction = dbQcall.Database.BeginTransaction(IsolationLevel.Serializable);
+                try
+                {
+                    dbQcall.SaveChanges();
+                    Transaction.Commit();
+                    result = true;
+                }
+                catch (Exception saveEx)
+                {
+                    Transaction.Rollback();
+                    throw saveEx;
+                }
+
+                return result;
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
 }

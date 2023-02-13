@@ -7,6 +7,11 @@ using static Business.Models.AppointmentSearchModel;
 
 namespace Business.Models
 {
+    public class QueueModel
+    {
+        public string appointment_Id { get; set; }
+        public string status { get; set; }
+    }
 
     public class QcallModel
     {
