@@ -6502,21 +6502,27 @@ namespace Business.Services
                     string start = ConfigurationManager.AppSettings["Config:TIMESTART"];
                     string end = ConfigurationManager.AppSettings["Config:TIMEEND"];
                     string checkInStatus ="";
-                    if (dateS.AddMinutes(-int.Parse(dockQoutaInterval.checkIn_Limit_Before)) > checkInDate)
+                    if (dockQoutaInterval.checkIn_Limit_Before != null && dockQoutaInterval.checkIn_Limit_After != null)
                     {
-                        resultmess = "ไม่สามารถเข้าก่อนเวลา ที่นัดไว้ได้ "+ dockQoutaInterval.checkIn_Limit_Before + " นาที";
-                        return resultmess;
-                    }
-                    else if (dateS.AddMinutes(int.Parse(dockQoutaInterval.checkIn_Limit_After)) < checkInDate)
-                    {
-                        resultmess = "คุณมาสายเกินเวลาที่นัด " + dockQoutaInterval.checkIn_Limit_After + " นาที ไม่สามารถเข้าได้";
-                        return resultmess;
-                    }
-                    else
-                    {
-
+                        if (dockQoutaInterval.checkIn_Limit_Before != null)
+                        {
+                            if (dateS.AddMinutes(-int.Parse(string.IsNullOrEmpty(dockQoutaInterval.checkIn_Limit_Before) != null ? dockQoutaInterval.checkIn_Limit_Before : "0")) > checkInDate)
+                            {
+                                resultmess = "ไม่สามารถเข้าก่อนเวลา ที่นัดไว้ได้ " + dockQoutaInterval.checkIn_Limit_Before + " นาที";
+                                return resultmess;
+                            }
+                        }
+                        if (dockQoutaInterval.checkIn_Limit_After != null)
+                        {
+                            if (dateS.AddMinutes(int.Parse(string.IsNullOrEmpty(dockQoutaInterval.checkIn_Limit_After) != null ? dockQoutaInterval.checkIn_Limit_After : "0")) < checkInDate)
+                            {
+                                resultmess = "คุณมาสายเกินเวลาที่นัด " + dockQoutaInterval.checkIn_Limit_After + " นาที ไม่สามารถเข้าได้";
+                                return resultmess;
+                            }
+                        }
                         checkInStatus = "On Time";
                     }
+                    
 
                     item.Status_Id = 0;
 
