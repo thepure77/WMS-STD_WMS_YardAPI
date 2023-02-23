@@ -3044,6 +3044,8 @@ namespace Business.Services
         #endregion
 
         #region  SaveAppointment Auto out
+
+        #region new
         public string SaveAppointment_Auto_out()
         {
             Logtxt LoggingService = new Logtxt();
@@ -3061,6 +3063,9 @@ namespace Business.Services
                 Ms_DockQoutaInterval get_timecan_Use = new Ms_DockQoutaInterval();
                 DataAccess.Models.GI.Table.im_TruckLoadItem getitem_TruckLoad = new DataAccess.Models.GI.Table.im_TruckLoadItem();
                 ms_VehicleType gettype_Vehicle = new ms_VehicleType();
+
+                List<DocumentType> documenttype = ListDocumentTypeForAppointment();
+                Ms_WareHouseQouta wareHouseQouta = db.Ms_WareHouseQouta.Where(c=> c.IsActive == 1 && c.IsDelete == 0 && c.Status_Id == 0).FirstOrDefault();
 
 
                 List<DataAccess.Models.GI.Table.im_TruckLoad> TruckLoad = dbGI.im_TruckLoad.Where(c => (c.Is_Booking == null || c.Is_Booking == 0) && c.UDF_1 != "NB").OrderBy(c => c.TruckLoad_No).ToList();
@@ -3080,20 +3085,67 @@ namespace Business.Services
                             Guid Documenttype__index;
                             string Documenttype_id;
                             string Documenttype_name;
+
                             if (get_TruckLoad.DocumentRef_No6 == "1")
                             {
-                                get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("8DC27B53-6F51-41BC-824F-6ABAD656284C") && c.IsActive == 1).ToList();
-                                Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
-                                Documenttype_id = "FROZEN01";
-                                Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
+                                if (documenttype.Count() > 0)
+                                {
+                                    DocumentType getDocumentType = documenttype.FirstOrDefault(c => c.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7"));
+                                    get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("8DC27B53-6F51-41BC-824F-6ABAD656284C") && c.IsActive == 1).ToList();
+                                    if (getDocumentType != null)
+                                    {
+                                        Documenttype__index = getDocumentType.DocumentType_Index.GetValueOrDefault();
+                                        Documenttype_id = getDocumentType.DocumentType_Id;
+                                        Documenttype_name = getDocumentType.DocumentType_Name;
+                                    }
+                                    else
+                                    {
+                                        Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
+                                        Documenttype_id = "FROZEN01";
+                                        Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
+                                    }
+                                }
+                                else
+                                {
+                                    Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
+                                    Documenttype_id = "FROZEN01";
+                                    Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
+                                }
+                                
+                                
 
                             }
                             else
                             {
-                                get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
-                                Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
-                                Documenttype_id = "OUT01";
-                                Documenttype_name = "รับสินค้า-OutBound";
+
+                                if (documenttype.Count() > 0)
+                                {
+                                    DocumentType getDocumentType = documenttype.FirstOrDefault(c => c.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"));
+                                    get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
+                                    if (getDocumentType != null)
+                                    {
+                                        Documenttype__index = getDocumentType.DocumentType_Index.GetValueOrDefault();
+                                        Documenttype_id = getDocumentType.DocumentType_Id;
+                                        Documenttype_name = getDocumentType.DocumentType_Name;
+                                    }
+                                    else
+                                    {
+                                        Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+                                        Documenttype_id = "OUT01";
+                                        Documenttype_name = "รับสินค้า-OutBound";
+                                    }
+                                }
+                                else
+                                {
+                                    Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+                                    Documenttype_id = "OUT01";
+                                    Documenttype_name = "รับสินค้า-OutBound";
+                                }
+
+                                //get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
+                                //Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+                                //Documenttype_id = "OUT01";
+                                //Documenttype_name = "รับสินค้า-OutBound";
                             }
 
 
@@ -3101,7 +3153,8 @@ namespace Business.Services
                             LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Shipment No : " + get_TruckLoad.TruckLoad_No);
                             save = true;
                             mess = "";
-                            Time = get_TruckLoad.DocumentRef_No5;
+                            //Time = get_TruckLoad.DocumentRef_No5;
+                            Time = DateTime.Now.AddHours((wareHouseQouta.Add_Hours == null ? 0 : wareHouseQouta.Add_Hours.Value)).ToString("HH");
 
                             if (get_dock.Count() > 0)
                             {
@@ -3166,7 +3219,7 @@ namespace Business.Services
 
                                         if (appointmentItem == null)
                                         {
-                                            get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.Dock_Index == truckloadBooking.Dock_Index && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E)).FirstOrDefault();
+                                            get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.Dock_Index == truckloadBooking.Dock_Index && c.Interval_Start == (Time_S) /*&& c.Interval_End == (Time_E)*/).FirstOrDefault();
                                             if (get_timecan_Use == null)
                                             {
                                                 mess = "ประตูในช่วงเวลาที่กำหนดไม่ว่าง";
@@ -3181,7 +3234,7 @@ namespace Business.Services
                                         {
                                             LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Old Dock Already Used: " + truckloadBooking.Dock_Name);
                                             List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
-                                            DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
+                                            DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S)/* && c.Interval_End == (Time_E)*/);
                                             if (gettime_frist != null)
                                             {
                                                 get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.DockQoutaInterval_Index == gettime_frist.DockQoutaInterval_Index).FirstOrDefault();
@@ -3204,7 +3257,7 @@ namespace Business.Services
                                     else
                                     {
                                         List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
-                                        DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
+                                        DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) /*&& c.Interval_End == (Time_E)*/);
                                         if (gettime_frist != null)
                                         {
                                             get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.DockQoutaInterval_Index == gettime_frist.DockQoutaInterval_Index).FirstOrDefault();
@@ -3303,7 +3356,7 @@ namespace Business.Services
                                     VehicleType_Name = gettype_Vehicle.VehicleType_Name,
                                     Vehicle_No = get_TruckLoad.Vehicle_Registration,
                                     Driver_Name = get_TruckLoad.DocumentRef_No1,
-                                    TransportManifest_Index = Guid.Parse(get_TruckLoad.DocumentRef_No4),
+                                    TransportManifest_Index = (get_TruckLoad.DocumentRef_No4 == null ? Guid.NewGuid() : Guid.Parse(get_TruckLoad.DocumentRef_No4)),
 
                                     IsActive = 1,
                                     IsDelete = 0,
@@ -3335,7 +3388,7 @@ namespace Business.Services
                                     Dock_Name = newAppointmentItem.Dock_Name,
                                     Ref_Document_No = get_TruckLoad.TruckLoad_No,
                                     Ref_Document_Index = get_TruckLoad.TruckLoad_Index,
-                                    TransportManifest_Index = Guid.Parse(get_TruckLoad.DocumentRef_No4),
+                                    TransportManifest_Index = appointmentItemDetail.TransportManifest_Index,
                                     IsActive = 1,
                                     IsDelete = 0,
                                     IsSystem = 0,
@@ -3444,6 +3497,460 @@ namespace Business.Services
                 throw ex;
             }
         }
+        #endregion
+
+        #region old
+        //public string SaveAppointment_Auto_out()
+        //{
+        //    Logtxt LoggingService = new Logtxt();
+        //    try
+        //    {
+        //        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Start Booking" + DateTime.Now.ToString("yyyy-MM-dd-HHmm"));
+        //        string mess = "";
+        //        bool save = true;
+        //        #region config
+        //        List<Guid> listdock;
+        //        string Time = "";
+        //        List<Ms_DockQoutaInterval> gettime = new List<Ms_DockQoutaInterval>();
+        //        List<DockInteval> gettime_new = new List<DockInteval>();
+
+        //        Ms_DockQoutaInterval get_timecan_Use = new Ms_DockQoutaInterval();
+        //        DataAccess.Models.GI.Table.im_TruckLoadItem getitem_TruckLoad = new DataAccess.Models.GI.Table.im_TruckLoadItem();
+        //        ms_VehicleType gettype_Vehicle = new ms_VehicleType();
+
+        //        List<DocumentType> documenttype = ListDocumentTypeForAppointment();
+
+
+        //        List<DataAccess.Models.GI.Table.im_TruckLoad> TruckLoad = dbGI.im_TruckLoad.Where(c => (c.Is_Booking == null || c.Is_Booking == 0) && c.UDF_1 != "NB").OrderBy(c => c.TruckLoad_No).ToList();
+        //        if (TruckLoad.Count <= 0)
+        //        {
+        //            mess = "Can not find dock";
+        //            save = false;
+        //        }
+        //        else
+        //        {
+        //            if (save)
+        //            {
+        //                List<Ms_Dock> get_dock = new List<Ms_Dock>();
+
+        //                foreach (DataAccess.Models.GI.Table.im_TruckLoad get_TruckLoad in TruckLoad)
+        //                {
+        //                    Guid Documenttype__index;
+        //                    string Documenttype_id;
+        //                    string Documenttype_name;
+
+        //                    if (get_TruckLoad.DocumentRef_No6 == "1")
+        //                    {
+        //                        if (documenttype.Count() > 0)
+        //                        {
+        //                            DocumentType getDocumentType = documenttype.FirstOrDefault(c => c.DocumentType_Index == Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7"));
+        //                            get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("8DC27B53-6F51-41BC-824F-6ABAD656284C") && c.IsActive == 1).ToList();
+        //                            if (getDocumentType != null)
+        //                            {
+        //                                Documenttype__index = getDocumentType.DocumentType_Index.GetValueOrDefault();
+        //                                Documenttype_id = getDocumentType.DocumentType_Id;
+        //                                Documenttype_name = getDocumentType.DocumentType_Name;
+        //                            }
+        //                            else
+        //                            {
+        //                                Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
+        //                                Documenttype_id = "FROZEN01";
+        //                                Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            Documenttype__index = Guid.Parse("13091631-5829-4341-BCB4-272B0ED854D7");
+        //                            Documenttype_id = "FROZEN01";
+        //                            Documenttype_name = "รับสินค้าห้องเย็น-OutBound";
+        //                        }
+
+
+
+        //                    }
+        //                    else
+        //                    {
+
+        //                        if (documenttype.Count() > 0)
+        //                        {
+        //                            DocumentType getDocumentType = documenttype.FirstOrDefault(c => c.DocumentType_Index == Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB"));
+        //                            get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
+        //                            if (getDocumentType != null)
+        //                            {
+        //                                Documenttype__index = getDocumentType.DocumentType_Index.GetValueOrDefault();
+        //                                Documenttype_id = getDocumentType.DocumentType_Id;
+        //                                Documenttype_name = getDocumentType.DocumentType_Name;
+        //                            }
+        //                            else
+        //                            {
+        //                                Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+        //                                Documenttype_id = "OUT01";
+        //                                Documenttype_name = "รับสินค้า-OutBound";
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+        //                            Documenttype_id = "OUT01";
+        //                            Documenttype_name = "รับสินค้า-OutBound";
+        //                        }
+
+        //                        get_dock = dbMS.Ms_Dock.Where(c => c.DockType_Index == Guid.Parse("BDB6CC26-B144-4E44-BC3F-F8E78E0E97AE") && c.IsActive == 1).ToList();
+        //                        Documenttype__index = Guid.Parse("C392D865-8E69-4985-B72F-2421EBE8BCDB");
+        //                        Documenttype_id = "OUT01";
+        //                        Documenttype_name = "รับสินค้า-OutBound";
+        //                    }
+
+
+
+        //                    LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Shipment No : " + get_TruckLoad.TruckLoad_No);
+        //                    save = true;
+        //                    mess = "";
+        //                    Time = get_TruckLoad.DocumentRef_No5;
+
+        //                    if (get_dock.Count() > 0)
+        //                    {
+        //                        listdock = get_dock.Select(c => c.Dock_Index).ToList();
+        //                        gettime = db.Ms_DockQoutaInterval.Where(c => listdock.Contains(c.Dock_Index)).ToList();
+        //                        gettime_new = (from DQT in db.Ms_DockQoutaInterval.Where(c => listdock.Contains(c.Dock_Index) && c.IsBreakTime == false)
+        //                                       join D in get_dock on DQT.Dock_Index equals D.Dock_Index
+        //                                       select new DockInteval
+        //                                       {
+        //                                           DockQoutaInterval_Index = DQT.DockQoutaInterval_Index,
+        //                                           Interval_Start = DQT.Interval_Start,
+        //                                           Interval_End = DQT.Interval_End,
+        //                                           Dock_Index = D.Dock_Index,
+        //                                           Dock_Id = D.Dock_Id,
+        //                                           Dock_Name = D.Dock_Name,
+        //                                           seq = D.seq
+        //                                       }).ToList();
+        //                    }
+        //                    else
+        //                    {
+        //                        mess = "Can not find dock";
+        //                        save = false;
+        //                    }
+
+        //                    if (get_TruckLoad != null)
+        //                    {
+
+        //                        getitem_TruckLoad = dbGI.im_TruckLoadItem.FirstOrDefault(c => c.TruckLoad_Index == get_TruckLoad.TruckLoad_Index);
+        //                        if (getitem_TruckLoad == null)
+        //                        {
+        //                            mess = "This TruckLoad didn't Ref_planGI ";
+        //                            save = false;
+        //                        }
+        //                        if (!string.IsNullOrEmpty(Time))
+        //                        {
+        //                            DateTime date_Booking = get_TruckLoad.Expect_Pickup_Date.Value.TrimTime().AddHours(double.Parse(Time));
+        //                            if (DateTime.Now > date_Booking)
+        //                            {
+        //                                mess = "เกินเวลาจอง Dock";
+        //                                save = false;
+        //                            }
+        //                            string Time_S, Time_E;
+        //                            if (get_TruckLoad.DocumentRef_No6 == "1")
+        //                            {
+        //                                Time_S = Time + ":00";
+        //                                Time_E = Time == "23" ? "00:59" : ((int.Parse(Time) + 1).ToString().Length > 1 ? (int.Parse(Time) + 1).ToString() : "0" + (int.Parse(Time) + 1).ToString()) + ":59";
+        //                            }
+        //                            else
+        //                            {
+        //                                Time_S = Time + ":00";
+        //                                Time_E = Time == "23" ? "00:59" : ((int.Parse(Time) + 1).ToString().Length > 1 ? (int.Parse(Time) + 1).ToString() : "0" + (int.Parse(Time) + 1).ToString()) + ":59";
+        //                                Time_E = ((int.Parse(Time) + 1).ToString().Length > 1 ? (int.Parse(Time) + 1).ToString() : "0" + (int.Parse(Time) + 1).ToString()) + ":59";
+        //                            }
+
+
+
+
+        //                            tb_TruckloadBooking truckloadBooking = db.tb_TruckloadBooking.Where(c => c.Ref_Document_No == get_TruckLoad.TruckLoad_No && c.IsActive == 1).FirstOrDefault();
+        //                            if (truckloadBooking != null)
+        //                            {
+        //                                Tb_AppointmentItem appointmentItem = db.Tb_AppointmentItem.FirstOrDefault(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.Dock_Index == truckloadBooking.Dock_Index && c.Appointment_Time == (Time_S + " - " + Time_E) && c.IsActive == 1 && c.IsDelete == 0);
+
+        //                                if (appointmentItem == null)
+        //                                {
+        //                                    get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.Dock_Index == truckloadBooking.Dock_Index && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E)).FirstOrDefault();
+        //                                    if (get_timecan_Use == null)
+        //                                    {
+        //                                        mess = "ประตูในช่วงเวลาที่กำหนดไม่ว่าง";
+        //                                        save = false;
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Used same Dock : " + truckloadBooking.Dock_Name);
+        //                                    }
+        //                                }
+        //                                else
+        //                                {
+        //                                    LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Old Dock Already Used: " + truckloadBooking.Dock_Name);
+        //                                    List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
+        //                                    DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
+        //                                    if (gettime_frist != null)
+        //                                    {
+        //                                        get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.DockQoutaInterval_Index == gettime_frist.DockQoutaInterval_Index).FirstOrDefault();
+        //                                        if (get_timecan_Use == null)
+        //                                        {
+        //                                            mess = "ประตูในช่วงเวลาที่กำหนดไม่ว่าง";
+        //                                            save = false;
+        //                                        }
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        mess = "เวลาที่ส่งมา ไม่ได้ถูก Config ไว้ในระบบ";
+        //                                        save = false;
+        //                                    }
+        //                                }
+        //                                truckloadBooking.IsActive = 0;
+        //                                truckloadBooking.Update_By = "System Yard";
+        //                                truckloadBooking.Update_Date = DateTime.Now;
+        //                            }
+        //                            else
+        //                            {
+        //                                List<Guid> finduse_time = db.Tb_AppointmentItem.Where(c => c.Appointment_Date == get_TruckLoad.Expect_Pickup_Date.Value.TrimTime() && c.IsActive == 1 && c.IsDelete == 0).Select(c => c.DockQoutaInterval_Index).ToList();
+        //                                DockInteval gettime_frist = gettime_new.OrderBy(c => c.seq).FirstOrDefault(c => !finduse_time.Contains(c.DockQoutaInterval_Index) && c.Interval_Start == (Time_S) && c.Interval_End == (Time_E));
+        //                                if (gettime_frist != null)
+        //                                {
+        //                                    get_timecan_Use = db.Ms_DockQoutaInterval.Where(c => c.DockQoutaInterval_Index == gettime_frist.DockQoutaInterval_Index).FirstOrDefault();
+        //                                    if (get_timecan_Use == null)
+        //                                    {
+        //                                        mess = "ประตูในช่วงเวลาที่กำหนดไม่ว่าง";
+        //                                        save = false;
+        //                                    }
+        //                                }
+        //                                else
+        //                                {
+        //                                    mess = "เวลาที่ส่งมา ไม่ได้ถูก Config ไว้ในระบบ";
+        //                                    save = false;
+        //                                }
+        //                            }
+
+        //                        }
+        //                        else
+        //                        {
+        //                            mess = "This Route Time didn't Config";
+        //                            save = false;
+        //                        }
+        //                        gettype_Vehicle = dbMS.ms_VehicleType.FirstOrDefault(c => c.VehicleType_Id == get_TruckLoad.VehicleType_Id);
+        //                        if (gettype_Vehicle == null)
+        //                        {
+        //                            mess = "ประเภทรถที่ส่งไม่ถูกกำหนด การจอง";
+        //                            save = false;
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        mess = "Can not find TruckLoad No";
+        //                        save = false;
+
+        //                    }
+        //                    #endregion
+
+        //                    if (save)
+        //                    {
+        //                        string appointmentId = GetDocumentNumber(Documenttype__index, DateTime.Now);
+
+
+        //                        Tb_Appointment newAppointment = new Tb_Appointment
+        //                        {
+        //                            Appointment_Index = Guid.NewGuid(),
+        //                            Appointment_Id = appointmentId,
+        //                            DocumentType_Index = Documenttype__index,
+        //                            DocumentType_Id = Documenttype_id,
+        //                            DocumentType_Name = Documenttype_name,
+        //                            IsActive = 1,
+        //                            IsDelete = 0,
+        //                            IsSystem = 0,
+        //                            Status_Id = 0,
+        //                            Create_By = "System Yard",
+        //                            Create_Date = DateTime.Now,
+        //                            Document_status = 5
+        //                        };
+
+        //                        Tb_AppointmentItem newAppointmentItem = new Tb_AppointmentItem
+        //                        {
+        //                            AppointmentItem_Index = Guid.NewGuid(),
+        //                            Appointment_Index = newAppointment.Appointment_Index,
+        //                            AppointmentItem_Id = appointmentId + "-0",
+        //                            Appointment_Id = newAppointment.Appointment_Id,
+        //                            DocumentType_Index = newAppointment.DocumentType_Index,
+        //                            DocumentType_Id = newAppointment.DocumentType_Id,
+        //                            DocumentType_Name = newAppointment.DocumentType_Name,
+        //                            Appointment_Date = get_TruckLoad.Expect_Pickup_Date.Value,
+        //                            Appointment_Time = get_timecan_Use.Interval_Start + " - " + get_timecan_Use.Interval_End,
+        //                            DockQoutaInterval_Index = get_timecan_Use.DockQoutaInterval_Index,
+        //                            WareHouse_Index = Guid.Parse("B0AD4E8F-A7B1-4952-BAC7-1A9482BABA79"),
+        //                            WareHouse_Id = "DC7",
+        //                            WareHouse_Name = "Amazon วังน้อย",
+        //                            Group_Index = Guid.NewGuid(),
+        //                            Dock_Index = get_timecan_Use.Dock_Index,
+        //                            Dock_Id = get_timecan_Use.Dock_Id,
+        //                            Dock_Name = get_timecan_Use.Dock_Name,
+        //                            Ref_Document_No = get_TruckLoad.TruckLoad_No,
+
+        //                            IsActive = 1,
+        //                            IsDelete = 0,
+        //                            IsSystem = 0,
+        //                            Status_Id = 0,
+        //                            Create_By = "System Yard",
+        //                            Create_Date = DateTime.Now
+        //                        };
+
+        //                        Tb_AppointmentItemDetail appointmentItemDetail = new Tb_AppointmentItemDetail()
+        //                        {
+        //                            AppointmentItemDetail_Index = Guid.NewGuid(),
+        //                            AppointmentItem_Index = newAppointmentItem.AppointmentItem_Index,
+        //                            Appointment_Index = newAppointment.Appointment_Index,
+        //                            Appointment_Id = newAppointment.Appointment_Id,
+        //                            VehicleType_Index = gettype_Vehicle.VehicleType_Index,
+        //                            VehicleType_Id = gettype_Vehicle.VehicleType_Id,
+        //                            VehicleType_Name = gettype_Vehicle.VehicleType_Name,
+        //                            Vehicle_No = get_TruckLoad.Vehicle_Registration,
+        //                            Driver_Name = get_TruckLoad.DocumentRef_No1,
+        //                            TransportManifest_Index = Guid.Parse(get_TruckLoad.DocumentRef_No4),
+
+        //                            IsActive = 1,
+        //                            IsDelete = 0,
+        //                            IsSystem = 0,
+        //                            Status_Id = 0,
+        //                            Create_By = "System Yard",
+        //                            Create_Date = DateTime.Now
+        //                        };
+
+        //                        tb_TruckloadBooking truckloadBooking = new tb_TruckloadBooking()
+        //                        {
+        //                            TruckloadBooking_index = Guid.NewGuid(),
+        //                            Appointment_Index = newAppointment.Appointment_Index,
+        //                            Appointment_Id = newAppointment.Appointment_Id,
+        //                            AppointmentItem_Index = newAppointmentItem.AppointmentItem_Index,
+        //                            AppointmentItem_Id = newAppointmentItem.AppointmentItem_Id,
+        //                            DocumentType_Index = newAppointmentItem.DocumentType_Index,
+        //                            DocumentType_Id = newAppointmentItem.DocumentType_Id,
+        //                            DocumentType_Name = newAppointmentItem.DocumentType_Name,
+        //                            Appointment_Date = get_TruckLoad.Expect_Pickup_Date.Value,
+        //                            Appointment_Time = newAppointmentItem.Appointment_Time,
+        //                            Vehicle_No = appointmentItemDetail.Vehicle_No,
+        //                            Driver_Name = appointmentItemDetail.Driver_Name,
+        //                            VehicleType_Index = appointmentItemDetail.VehicleType_Index,
+        //                            VehicleType_Id = appointmentItemDetail.VehicleType_Id,
+        //                            VehicleType_Name = appointmentItemDetail.VehicleType_Name,
+        //                            Dock_Index = newAppointmentItem.Dock_Index,
+        //                            Dock_Id = newAppointmentItem.Dock_Id,
+        //                            Dock_Name = newAppointmentItem.Dock_Name,
+        //                            Ref_Document_No = get_TruckLoad.TruckLoad_No,
+        //                            Ref_Document_Index = get_TruckLoad.TruckLoad_Index,
+        //                            TransportManifest_Index = Guid.Parse(get_TruckLoad.DocumentRef_No4),
+        //                            IsActive = 1,
+        //                            IsDelete = 0,
+        //                            IsSystem = 0,
+        //                            Status_Id = 0,
+        //                            Create_By = "System Yard",
+        //                            Create_Date = DateTime.Now
+        //                        };
+
+        //                        db.Tb_Appointment.Add(newAppointment);
+        //                        db.Tb_AppointmentItem.Add(newAppointmentItem);
+        //                        db.Tb_AppointmentItemDetail.Add(appointmentItemDetail);
+        //                        db.tb_TruckloadBooking.Add(truckloadBooking);
+
+        //                        var myTransaction = db.Database.BeginTransaction(IsolationLevel.Serializable);
+        //                        try
+        //                        {
+        //                            db.SaveChanges();
+        //                            myTransaction.Commit();
+        //                        }
+        //                        catch (Exception saveEx)
+        //                        {
+        //                            myTransaction.Rollback();
+        //                            throw saveEx;
+        //                        }
+
+        //                        var status = new
+        //                        {
+        //                            TransportManifest_No = get_TruckLoad.TruckLoad_No,
+        //                            Dock_Name = newAppointmentItem.Dock_Name,
+        //                            Dock_Time = newAppointmentItem.Appointment_Time,
+        //                            Dock_Status = "จอง Booking สำเร็จ"
+        //                        };
+        //                        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Send TMS : " + JsonConvert.SerializeObject(status));
+        //                        try
+        //                        {
+        //                            var result_api = Utils.SendDataApi<bookTransportManifest>(new AppSettingConfig().GetUrl("Status_Booking"), JsonConvert.SerializeObject(status));
+        //                            LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess : " + JsonConvert.SerializeObject(result_api));
+        //                        }
+        //                        catch (Exception ex)
+        //                        {
+        //                            LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess Error: " + JsonConvert.SerializeObject(ex));
+        //                        }
+
+
+        //                    }
+        //                    if (mess == "")
+        //                    {
+
+        //                        get_TruckLoad.Is_Booking = 1;
+        //                        get_TruckLoad.Document_Remark = "สำเร็จ";
+        //                        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound type: " + get_TruckLoad.Document_Remark);
+        //                    }
+        //                    else
+        //                    {
+        //                        if (mess != "Can not find TruckLoad No")
+        //                        {
+        //                            get_TruckLoad.Is_Booking = -2;
+        //                            get_TruckLoad.Document_Remark = mess;
+        //                            LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound type: " + get_TruckLoad.Document_Remark);
+
+        //                            var status = new
+        //                            {
+        //                                TransportManifest_No = get_TruckLoad.TruckLoad_No,
+        //                                Dock_Name = mess,
+        //                                Dock_Time = "",
+        //                                Dock_Status = -1
+        //                            };
+        //                            LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Send TMS : " + JsonConvert.SerializeObject(status));
+        //                            try
+        //                            {
+        //                                var result_api = Utils.SendDataApi<bookTransportManifest>(new AppSettingConfig().GetUrl("Status_Booking"), JsonConvert.SerializeObject(status));
+        //                                LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess : " + JsonConvert.SerializeObject(result_api));
+        //                            }
+        //                            catch (Exception ex)
+        //                            {
+        //                                LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Mess Error: " + JsonConvert.SerializeObject(ex));
+        //                            }
+
+        //                        }
+
+        //                    }
+        //                    var myTransactionGI = dbGI.Database.BeginTransaction(IsolationLevel.Serializable);
+        //                    try
+        //                    {
+        //                        dbGI.SaveChanges();
+        //                        myTransactionGI.Commit();
+        //                        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound : true");
+        //                    }
+        //                    catch (Exception saveEx)
+        //                    {
+        //                        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound Error: " + JsonConvert.SerializeObject(saveEx));
+        //                        myTransactionGI.Rollback();
+        //                        throw saveEx;
+        //                    }
+        //                }
+        //            }
+        //        }
+
+
+        //        mess = "S";
+        //        return mess;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LoggingService.DataLogLines("SaveAppointment_Auto_out", "SaveAppointment_Auto_out" + DateTime.Now.ToString("yyyy-MM-dd"), "Save Outbound Error: " + JsonConvert.SerializeObject(ex));
+        //        throw ex;
+        //    }
+        //}
+        #endregion 
+
         #endregion
 
         #region Save ReAssign
@@ -8267,12 +8774,14 @@ namespace Business.Services
 
                 return result;
 
-                #endregion
+                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        #endregion
     }
 }

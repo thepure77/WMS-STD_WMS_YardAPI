@@ -20,6 +20,8 @@ namespace DataAccess.Models.Yard.Table
 
         public int Pre_Booking { get; set; }
 
+        public int? Add_Hours { get; set; }
+
         public int CheckIn_Limit_Before { get; set; }
 
         public int CheckIn_Limit_After { get; set; }
